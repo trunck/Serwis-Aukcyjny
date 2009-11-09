@@ -11,6 +11,9 @@ class UsersController < ApplicationController
     allow :owner, :of => :user, :to => [:show, :edit, :update]
   end
   
+  @@displays_per_page = 3
+  #TODO zrób to jako parametr w pliku
+  
   def new
     @user = User.new
   end

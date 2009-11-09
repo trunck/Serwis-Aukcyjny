@@ -31,6 +31,14 @@ class User < ActiveRecord::Base
     #TODO dodaj wyslanie e-maila
   end
   
+  def admin!
+    has_role!(:admin)
+  end
+  
+  def no_admin!
+    has_no_role!(:admin)
+  end
+  
   acts_as_authentic do |c|
    #c.my_config_option = my_value
    c.logged_in_timeout(10)

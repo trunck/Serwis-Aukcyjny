@@ -1,8 +1,0 @@
-<%= form.label :początek_aukcji %><br/>
-<%= form.date_select :start %><br/>
-<br/>
-<%= form.label :koniec_aukcji %><br/>
-<%= form.date_select :end %><br/>
-<br/>
-
-<br/>
