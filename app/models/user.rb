@@ -11,6 +11,10 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email, :message => "Istnieje użytkownik o takim e-mailu"
   before_save :assign_roles
   
+  def self.per_page
+    2 #TODO zrób tak, żeby to było w pliku konfiguracyjnym
+  end
+  
   def assign_roles
       if(new_record?)
         has_role!(:owner, @user);

@@ -18214,3 +18214,1070 @@ Rendering template within layouts/application
 Rendering auctions/new
 Rendered auctions/_form (27.1ms)
 Completed in 544ms (View: 41, DB: 52) | 200 OK [http://localhost/auctions/create]
+  [4;36;1mSQL (20.9ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-11-10 00:08:52) [GET]
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering template within layouts/application
+Rendering home/index
+Rendered home/_userForm (155.0ms)
+Completed in 1413ms (View: 350, DB: 22) | 200 OK [http://localhost/]
+  [4;36;1mSQL (8.7ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2009-11-10 00:09:01) [POST]
+  Parameters: {"commit"=>"Login", "user_session"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "login"=>"kuba"}, "action"=>"create", "authenticity_token"=>"zn0cLymp04nwFFG4+vrLixKQB24JJc7NbpayIUieLSk=", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (43.1ms)[0m   [0;1mSELECT * FROM "users" WHERE (LOWER("users".login) = E'kuba') LIMIT 1[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (42.9ms)[0m   [0;1mUPDATE "users" SET "persistence_token" = E'5307ccdb57b65b87cf07065484939361c49b1434a71548c8eac170c6f3b24715e0ce3004c19828119cb00f1532ca321bc1ccd22c23a179e6c3d4f16d5e4fbce1', "login_count" = 12, "failed_login_count" = 0, "current_login_ip" = E'127.0.0.1', "updated_at" = '2009-11-09 23:09:05.600951', "created_at" = '2009-11-03 22:44:17.940836', "email" = E'ja.zajko@gmail.com', "perishable_token" = E'PJwQ8zqpSEN44qO-NQ7Z', "openid_identifier" = NULL, "login" = E'kuba', "single_access_token" = E'jtSmMfibxAEhQ-UtCtaE', "last_request_at" = '2009-11-09 23:09:05.596191', "baseUser_type" = NULL, "last_login_at" = '2009-11-08 14:32:39.529747', "surname" = E' ', "baseUser_id" = NULL, "first_name" = E' ', "last_login_ip" = E'127.0.0.1', "activated" = 'f', "password_salt" = E'jYRVHusajmfKEnoAsZvc', "current_login_at" = '2009-11-09 23:09:05.325910', "crypted_password" = E'b0515ed29bcc58f10c77a3fa139e4620189bd5dbc4bd19aa2d4cabc577e6f0c737d4fc4dc003970af03535c1f8af3fc3df3c3c9750e868800ca45e0df5cf0ed0' WHERE "id" = 1[0m
+  [4;35;1mSQL (64.9ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3001/
+Completed in 4377ms (DB: 161) | 302 Found [http://localhost/user_session]
+  [4;36;1mSQL (1.7ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-11-10 00:09:06) [GET]
+  Parameters: {"action"=>"index", "controller"=>"home"}
+  [4;36;1mUser Load (7.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = E'1') LIMIT 1[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (14.4ms)[0m   [0;1mUPDATE "users" SET "persistence_token" = E'5307ccdb57b65b87cf07065484939361c49b1434a71548c8eac170c6f3b24715e0ce3004c19828119cb00f1532ca321bc1ccd22c23a179e6c3d4f16d5e4fbce1', "login_count" = 12, "failed_login_count" = 0, "current_login_ip" = E'127.0.0.1', "updated_at" = '2009-11-09 23:09:07.366002', "created_at" = '2009-11-03 22:44:17.940836', "email" = E'ja.zajko@gmail.com', "perishable_token" = E'NgyL0Ut-05LDPL0Iym4A', "openid_identifier" = NULL, "login" = E'kuba', "single_access_token" = E'jtSmMfibxAEhQ-UtCtaE', "last_request_at" = '2009-11-09 23:09:07.361949', "baseUser_type" = NULL, "last_login_at" = '2009-11-08 14:32:39.529747', "surname" = E' ', "baseUser_id" = NULL, "first_name" = E' ', "last_login_ip" = E'127.0.0.1', "activated" = 'f', "password_salt" = E'jYRVHusajmfKEnoAsZvc', "current_login_at" = '2009-11-09 23:09:05.325910', "crypted_password" = E'b0515ed29bcc58f10c77a3fa139e4620189bd5dbc4bd19aa2d4cabc577e6f0c737d4fc4dc003970af03535c1f8af3fc3df3c3c9750e868800ca45e0df5cf0ed0' WHERE "id" = 1[0m
+  [4;35;1mSQL (5.7ms)[0m   [0mCOMMIT[0m
+Rendering template within layouts/application
+Rendering home/index
+Rendered home/_userForm (3.0ms)
+Completed in 1093ms (View: 12, DB: 31) | 200 OK [http://localhost/]
+  [4;36;1mSQL (3.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (18.8ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-10 00:09:20) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;36;1mUser Load (18.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = E'1') LIMIT 1[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (3.1ms)[0m   [0;1mUPDATE "users" SET "persistence_token" = E'5307ccdb57b65b87cf07065484939361c49b1434a71548c8eac170c6f3b24715e0ce3004c19828119cb00f1532ca321bc1ccd22c23a179e6c3d4f16d5e4fbce1', "login_count" = 12, "failed_login_count" = 0, "current_login_ip" = E'127.0.0.1', "updated_at" = '2009-11-09 23:09:20.821219', "created_at" = '2009-11-03 22:44:17.940836', "email" = E'ja.zajko@gmail.com', "perishable_token" = E'43l4QMSqZqOilS9BDfXo', "openid_identifier" = NULL, "login" = E'kuba', "single_access_token" = E'jtSmMfibxAEhQ-UtCtaE', "last_request_at" = '2009-11-09 23:09:20.818169', "baseUser_type" = NULL, "last_login_at" = '2009-11-08 14:32:39.529747', "surname" = E' ', "baseUser_id" = NULL, "first_name" = E' ', "last_login_ip" = E'127.0.0.1', "activated" = 'f', "password_salt" = E'jYRVHusajmfKEnoAsZvc', "current_login_at" = '2009-11-09 23:09:05.325910', "crypted_password" = E'b0515ed29bcc58f10c77a3fa139e4620189bd5dbc4bd19aa2d4cabc577e6f0c737d4fc4dc003970af03535c1f8af3fc3df3c3c9750e868800ca45e0df5cf0ed0' WHERE "id" = 1[0m
+  [4;35;1mSQL (14.1ms)[0m   [0mCOMMIT[0m
+  [4;36;1mRole Load (58.6ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'admin') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (4.9ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mRole Load (2.9ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mRole Load (7.2ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;36;1mRole Load (1.6ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'not_activated') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (1.6ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'not_activated' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mUser Load (3.4ms)[0m   [0;1mSELECT * FROM "users" ORDER BY login ASC LIMIT 2 OFFSET 0[0m
+  [4;35;1mSQL (51.8ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;36;1mRole Load (2.3ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE (("roles_users".user_id = 1)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;36;1mRole Load (2.5ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE (("roles_users".user_id = 2)) [0m
+  [4;35;1mRole Load (2.5ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 2 ) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mRole Load (1.9ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 2 ) [0m
+Completed in 636ms (View: 183, DB: 200) | 200 OK [http://localhost/users/index]
+  [4;36;1mSQL (35.7ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (2.3ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing UsersController#index&page=2 (for 127.0.0.1 at 2009-11-10 00:09:31) [GET]
+  Parameters: {"action"=>"index&page=2", "controller"=>"users"}
+  [4;36;1mUser Load (6.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = E'1') LIMIT 1[0m
+  [4;35;1mSQL (4.9ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (3.8ms)[0m   [0;1mUPDATE "users" SET "persistence_token" = E'5307ccdb57b65b87cf07065484939361c49b1434a71548c8eac170c6f3b24715e0ce3004c19828119cb00f1532ca321bc1ccd22c23a179e6c3d4f16d5e4fbce1', "login_count" = 12, "failed_login_count" = 0, "current_login_ip" = E'127.0.0.1', "updated_at" = '2009-11-09 23:09:32.445966', "created_at" = '2009-11-03 22:44:17.940836', "email" = E'ja.zajko@gmail.com', "perishable_token" = E'YrXkFKOQA2XwLgfclGnU', "openid_identifier" = NULL, "login" = E'kuba', "single_access_token" = E'jtSmMfibxAEhQ-UtCtaE', "last_request_at" = '2009-11-09 23:09:32.438205', "baseUser_type" = NULL, "last_login_at" = '2009-11-08 14:32:39.529747', "surname" = E' ', "baseUser_id" = NULL, "first_name" = E' ', "last_login_ip" = E'127.0.0.1', "activated" = 'f', "password_salt" = E'jYRVHusajmfKEnoAsZvc', "current_login_at" = '2009-11-09 23:09:05.325910', "crypted_password" = E'b0515ed29bcc58f10c77a3fa139e4620189bd5dbc4bd19aa2d4cabc577e6f0c737d4fc4dc003970af03535c1f8af3fc3df3c3c9750e868800ca45e0df5cf0ed0' WHERE "id" = 1[0m
+  [4;35;1mSQL (4.7ms)[0m   [0mCOMMIT[0m
+  [4;36;1mRole Load (12.6ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'admin') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (3.4ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mRole Load (6.9ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mRole Load (3.1ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;36;1mRole Load (3.1ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'not_activated') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (3.2ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'not_activated' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+
+ActionController::UnknownAction (No action responded to index&page=2. Actions: activate, ban, create, current_user, current_user_session, deny_user_access, edit, generate_activate_url, index, new, redirect_back_or_default, require_no_user, require_user, show, store_location, unban, and update):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-10 00:12:10) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;36;1mUser Load (11.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = E'1') LIMIT 1[0m
+  [4;35;1mSQL (4.9ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (8.5ms)[0m   [0;1mUPDATE "users" SET "persistence_token" = E'5307ccdb57b65b87cf07065484939361c49b1434a71548c8eac170c6f3b24715e0ce3004c19828119cb00f1532ca321bc1ccd22c23a179e6c3d4f16d5e4fbce1', "login_count" = 12, "failed_login_count" = 0, "current_login_ip" = E'127.0.0.1', "updated_at" = '2009-11-09 23:12:10.890570', "created_at" = '2009-11-03 22:44:17.940836', "email" = E'ja.zajko@gmail.com', "perishable_token" = E'NwcdYd0noIRs6lilF7kW', "openid_identifier" = NULL, "login" = E'kuba', "single_access_token" = E'jtSmMfibxAEhQ-UtCtaE', "last_request_at" = '2009-11-09 23:12:10.882092', "baseUser_type" = NULL, "last_login_at" = '2009-11-08 14:32:39.529747', "surname" = E' ', "baseUser_id" = NULL, "first_name" = E' ', "last_login_ip" = E'127.0.0.1', "activated" = 'f', "password_salt" = E'jYRVHusajmfKEnoAsZvc', "current_login_at" = '2009-11-09 23:09:05.325910', "crypted_password" = E'b0515ed29bcc58f10c77a3fa139e4620189bd5dbc4bd19aa2d4cabc577e6f0c737d4fc4dc003970af03535c1f8af3fc3df3c3c9750e868800ca45e0df5cf0ed0' WHERE "id" = 1[0m
+  [4;35;1mSQL (7.9ms)[0m   [0mCOMMIT[0m
+  [4;36;1mRole Load (3.8ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'admin') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (4.3ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mRole Load (2.7ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mRole Load (9.8ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;36;1mRole Load (21.7ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'not_activated') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (7.2ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'not_activated' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mUser Load (3.6ms)[0m   [0;1mSELECT * FROM "users" ORDER BY login ASC LIMIT 2 OFFSET 0[0m
+  [4;35;1mSQL (3.4ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;36;1mRole Load (2.6ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE (("roles_users".user_id = 1)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;36;1mRole Load (13.7ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE (("roles_users".user_id = 2)) [0m
+  [4;35;1mRole Load (2.6ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 2 ) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mRole Load (2.6ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 2 ) [0m
+Completed in 381ms (View: 46, DB: 112) | 200 OK [http://localhost/users/index]
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (11.8ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-10 00:12:18) [GET]
+  Parameters: {"action"=>"index", "page"=>"2", "controller"=>"users"}
+  [4;36;1mUser Load (8.8ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = E'1') LIMIT 1[0m
+  [4;35;1mSQL (7.9ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (5.1ms)[0m   [0;1mUPDATE "users" SET "persistence_token" = E'5307ccdb57b65b87cf07065484939361c49b1434a71548c8eac170c6f3b24715e0ce3004c19828119cb00f1532ca321bc1ccd22c23a179e6c3d4f16d5e4fbce1', "login_count" = 12, "failed_login_count" = 0, "current_login_ip" = E'127.0.0.1', "updated_at" = '2009-11-09 23:12:18.551603', "created_at" = '2009-11-03 22:44:17.940836', "email" = E'ja.zajko@gmail.com', "perishable_token" = E'SE6JGxw3485GYMjaaFlB', "openid_identifier" = NULL, "login" = E'kuba', "single_access_token" = E'jtSmMfibxAEhQ-UtCtaE', "last_request_at" = '2009-11-09 23:12:18.542812', "baseUser_type" = NULL, "last_login_at" = '2009-11-08 14:32:39.529747', "surname" = E' ', "baseUser_id" = NULL, "first_name" = E' ', "last_login_ip" = E'127.0.0.1', "activated" = 'f', "password_salt" = E'jYRVHusajmfKEnoAsZvc', "current_login_at" = '2009-11-09 23:09:05.325910', "crypted_password" = E'b0515ed29bcc58f10c77a3fa139e4620189bd5dbc4bd19aa2d4cabc577e6f0c737d4fc4dc003970af03535c1f8af3fc3df3c3c9750e868800ca45e0df5cf0ed0' WHERE "id" = 1[0m
+  [4;35;1mSQL (2.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mRole Load (9.9ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'admin') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (5.2ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mRole Load (2.4ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mRole Load (2.7ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;36;1mRole Load (2.3ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'not_activated') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (8.3ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'not_activated' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mUser Load (3.9ms)[0m   [0;1mSELECT * FROM "users" ORDER BY login ASC LIMIT 2 OFFSET 2[0m
+  [4;35;1mSQL (5.3ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;36;1mRole Load (5.1ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE (("roles_users".user_id = 4)) [0m
+  [4;35;1mRole Load (6.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 4 ) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mRole Load (6.6ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 4 ) [0m
+  [4;36;1mRole Load (2.2ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE (("roles_users".user_id = 5)) [0m
+  [4;35;1mRole Load (5.8ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 5 ) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mRole Load (3.2ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 5 ) [0m
+Completed in 376ms (View: 89, DB: 106) | 200 OK [http://localhost/users?page=2]
+  [4;36;1mSQL (1.9ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-10 00:12:21) [GET]
+  Parameters: {"action"=>"index", "page"=>"3", "controller"=>"users"}
+  [4;36;1mUser Load (6.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = E'1') LIMIT 1[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (46.3ms)[0m   [0;1mUPDATE "users" SET "persistence_token" = E'5307ccdb57b65b87cf07065484939361c49b1434a71548c8eac170c6f3b24715e0ce3004c19828119cb00f1532ca321bc1ccd22c23a179e6c3d4f16d5e4fbce1', "login_count" = 12, "failed_login_count" = 0, "current_login_ip" = E'127.0.0.1', "updated_at" = '2009-11-09 23:12:21.968641', "created_at" = '2009-11-03 22:44:17.940836', "email" = E'ja.zajko@gmail.com', "perishable_token" = E'sxYqkG8UcwSV05KHiuC8', "openid_identifier" = NULL, "login" = E'kuba', "single_access_token" = E'jtSmMfibxAEhQ-UtCtaE', "last_request_at" = '2009-11-09 23:12:21.966210', "baseUser_type" = NULL, "last_login_at" = '2009-11-08 14:32:39.529747', "surname" = E' ', "baseUser_id" = NULL, "first_name" = E' ', "last_login_ip" = E'127.0.0.1', "activated" = 'f', "password_salt" = E'jYRVHusajmfKEnoAsZvc', "current_login_at" = '2009-11-09 23:09:05.325910', "crypted_password" = E'b0515ed29bcc58f10c77a3fa139e4620189bd5dbc4bd19aa2d4cabc577e6f0c737d4fc4dc003970af03535c1f8af3fc3df3c3c9750e868800ca45e0df5cf0ed0' WHERE "id" = 1[0m
+  [4;35;1mSQL (7.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mRole Load (41.4ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'admin') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (2.1ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mRole Load (9.2ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mRole Load (3.1ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;36;1mRole Load (2.2ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'not_activated') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (3.1ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'not_activated' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mUser Load (3.3ms)[0m   [0;1mSELECT * FROM "users" ORDER BY login ASC LIMIT 2 OFFSET 4[0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;35;1mRole Load (28.4ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE (("roles_users".user_id = 7)) [0m
+  [4;36;1mRole Load (2.3ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 7 ) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mRole Load (11.5ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 7 ) [0m
+Completed in 906ms (View: 418, DB: 171) | 200 OK [http://localhost/users?page=3]
+  [4;35;1mSQL (24.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (13.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-10 00:12:26) [GET]
+  Parameters: {"action"=>"index", "page"=>"2", "controller"=>"users"}
+  [4;35;1mUser Load (5.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = E'1') LIMIT 1[0m
+  [4;36;1mSQL (12.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (6.9ms)[0m   [0mUPDATE "users" SET "persistence_token" = E'5307ccdb57b65b87cf07065484939361c49b1434a71548c8eac170c6f3b24715e0ce3004c19828119cb00f1532ca321bc1ccd22c23a179e6c3d4f16d5e4fbce1', "login_count" = 12, "failed_login_count" = 0, "current_login_ip" = E'127.0.0.1', "updated_at" = '2009-11-09 23:12:26.936397', "created_at" = '2009-11-03 22:44:17.940836', "email" = E'ja.zajko@gmail.com', "perishable_token" = E'oHLmYsc51k5jfCNNMuUv', "openid_identifier" = NULL, "login" = E'kuba', "single_access_token" = E'jtSmMfibxAEhQ-UtCtaE', "last_request_at" = '2009-11-09 23:12:26.918658', "baseUser_type" = NULL, "last_login_at" = '2009-11-08 14:32:39.529747', "surname" = E' ', "baseUser_id" = NULL, "first_name" = E' ', "last_login_ip" = E'127.0.0.1', "activated" = 'f', "password_salt" = E'jYRVHusajmfKEnoAsZvc', "current_login_at" = '2009-11-09 23:09:05.325910', "crypted_password" = E'b0515ed29bcc58f10c77a3fa139e4620189bd5dbc4bd19aa2d4cabc577e6f0c737d4fc4dc003970af03535c1f8af3fc3df3c3c9750e868800ca45e0df5cf0ed0' WHERE "id" = 1[0m
+  [4;36;1mSQL (12.2ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mRole Load (67.5ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'admin') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mRole Load (6.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (5.6ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mRole Load (3.0ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;35;1mRole Load (2.9ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'not_activated') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mRole Load (2.4ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'not_activated' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mUser Load (5.4ms)[0m   [0mSELECT * FROM "users" ORDER BY login ASC LIMIT 2 OFFSET 2[0m
+  [4;36;1mSQL (3.9ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;35;1mRole Load (4.3ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE (("roles_users".user_id = 4)) [0m
+  [4;36;1mRole Load (4.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 4 ) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mRole Load (23.0ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 4 ) [0m
+  [4;35;1mRole Load (2.5ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE (("roles_users".user_id = 5)) [0m
+  [4;36;1mRole Load (3.2ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 5 ) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mRole Load (2.9ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 5 ) [0m
+Completed in 607ms (View: 84, DB: 211) | 200 OK [http://localhost/users?page=2]
+  [4;35;1mSQL (1.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-10 00:12:29) [GET]
+  Parameters: {"action"=>"index", "page"=>"1", "controller"=>"users"}
+  [4;35;1mUser Load (38.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = E'1') LIMIT 1[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (3.9ms)[0m   [0mUPDATE "users" SET "persistence_token" = E'5307ccdb57b65b87cf07065484939361c49b1434a71548c8eac170c6f3b24715e0ce3004c19828119cb00f1532ca321bc1ccd22c23a179e6c3d4f16d5e4fbce1', "login_count" = 12, "failed_login_count" = 0, "current_login_ip" = E'127.0.0.1', "updated_at" = '2009-11-09 23:12:30.314416', "created_at" = '2009-11-03 22:44:17.940836', "email" = E'ja.zajko@gmail.com', "perishable_token" = E'nUPi6tUioQ3ab31Mh_1-', "openid_identifier" = NULL, "login" = E'kuba', "single_access_token" = E'jtSmMfibxAEhQ-UtCtaE', "last_request_at" = '2009-11-09 23:12:30.308897', "baseUser_type" = NULL, "last_login_at" = '2009-11-08 14:32:39.529747', "surname" = E' ', "baseUser_id" = NULL, "first_name" = E' ', "last_login_ip" = E'127.0.0.1', "activated" = 'f', "password_salt" = E'jYRVHusajmfKEnoAsZvc', "current_login_at" = '2009-11-09 23:09:05.325910', "crypted_password" = E'b0515ed29bcc58f10c77a3fa139e4620189bd5dbc4bd19aa2d4cabc577e6f0c737d4fc4dc003970af03535c1f8af3fc3df3c3c9750e868800ca45e0df5cf0ed0' WHERE "id" = 1[0m
+  [4;36;1mSQL (2.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mRole Load (5.1ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'admin') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mRole Load (82.1ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (24.3ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mRole Load (3.5ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;35;1mRole Load (12.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'not_activated') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mRole Load (6.6ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'not_activated' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mUser Load (22.6ms)[0m   [0mSELECT * FROM "users" ORDER BY login ASC LIMIT 2 OFFSET 0[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;35;1mRole Load (14.1ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE (("roles_users".user_id = 1)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;35;1mRole Load (19.4ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE (("roles_users".user_id = 2)) [0m
+  [4;36;1mRole Load (2.7ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 2 ) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mRole Load (9.8ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 2 ) [0m
+Completed in 1643ms (View: 114, DB: 253) | 200 OK [http://localhost/users?page=1]
+  [4;35;1mSQL (1.4ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-10 00:13:07) [GET]
+  Parameters: {"action"=>"index", "page"=>"2", "controller"=>"users"}
+  [4;35;1mUser Load (8.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = E'1') LIMIT 1[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (5.5ms)[0m   [0mUPDATE "users" SET "persistence_token" = E'5307ccdb57b65b87cf07065484939361c49b1434a71548c8eac170c6f3b24715e0ce3004c19828119cb00f1532ca321bc1ccd22c23a179e6c3d4f16d5e4fbce1', "login_count" = 12, "failed_login_count" = 0, "current_login_ip" = E'127.0.0.1', "updated_at" = '2009-11-09 23:13:07.441884', "created_at" = '2009-11-03 22:44:17.940836', "email" = E'ja.zajko@gmail.com', "perishable_token" = E'gdJGLuc90JdFt-AElpo4', "openid_identifier" = NULL, "login" = E'kuba', "single_access_token" = E'jtSmMfibxAEhQ-UtCtaE', "last_request_at" = '2009-11-09 23:13:07.432215', "baseUser_type" = NULL, "last_login_at" = '2009-11-08 14:32:39.529747', "surname" = E' ', "baseUser_id" = NULL, "first_name" = E' ', "last_login_ip" = E'127.0.0.1', "activated" = 'f', "password_salt" = E'jYRVHusajmfKEnoAsZvc', "current_login_at" = '2009-11-09 23:09:05.325910', "crypted_password" = E'b0515ed29bcc58f10c77a3fa139e4620189bd5dbc4bd19aa2d4cabc577e6f0c737d4fc4dc003970af03535c1f8af3fc3df3c3c9750e868800ca45e0df5cf0ed0' WHERE "id" = 1[0m
+  [4;36;1mSQL (2.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mRole Load (3.8ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'admin') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mRole Load (5.8ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (6.6ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mRole Load (3.2ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;35;1mRole Load (16.9ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'not_activated') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mRole Load (1.8ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'not_activated' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mUser Load (2.1ms)[0m   [0mSELECT * FROM "users" ORDER BY login ASC LIMIT 2 OFFSET 2[0m
+  [4;36;1mSQL (4.9ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;35;1mRole Load (38.4ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE (("roles_users".user_id = 4)) [0m
+  [4;36;1mRole Load (11.6ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 4 ) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mRole Load (4.3ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 4 ) [0m
+  [4;35;1mRole Load (7.1ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE (("roles_users".user_id = 5)) [0m
+  [4;36;1mRole Load (6.9ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 5 ) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mRole Load (11.0ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 5 ) [0m
+Completed in 481ms (View: 39, DB: 146) | 200 OK [http://localhost/users?page=2]
+  [4;35;1mSQL (1.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-10 00:13:10) [GET]
+  Parameters: {"action"=>"index", "page"=>"3", "controller"=>"users"}
+  [4;35;1mUser Load (4.9ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = E'1') LIMIT 1[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (3.4ms)[0m   [0mUPDATE "users" SET "persistence_token" = E'5307ccdb57b65b87cf07065484939361c49b1434a71548c8eac170c6f3b24715e0ce3004c19828119cb00f1532ca321bc1ccd22c23a179e6c3d4f16d5e4fbce1', "login_count" = 12, "failed_login_count" = 0, "current_login_ip" = E'127.0.0.1', "updated_at" = '2009-11-09 23:13:10.659029', "created_at" = '2009-11-03 22:44:17.940836', "email" = E'ja.zajko@gmail.com', "perishable_token" = E'7WSJeeIb82gvuFI6gUTX', "openid_identifier" = NULL, "login" = E'kuba', "single_access_token" = E'jtSmMfibxAEhQ-UtCtaE', "last_request_at" = '2009-11-09 23:13:10.655574', "baseUser_type" = NULL, "last_login_at" = '2009-11-08 14:32:39.529747', "surname" = E' ', "baseUser_id" = NULL, "first_name" = E' ', "last_login_ip" = E'127.0.0.1', "activated" = 'f', "password_salt" = E'jYRVHusajmfKEnoAsZvc', "current_login_at" = '2009-11-09 23:09:05.325910', "crypted_password" = E'b0515ed29bcc58f10c77a3fa139e4620189bd5dbc4bd19aa2d4cabc577e6f0c737d4fc4dc003970af03535c1f8af3fc3df3c3c9750e868800ca45e0df5cf0ed0' WHERE "id" = 1[0m
+  [4;36;1mSQL (2.7ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mRole Load (7.9ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'admin') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mRole Load (12.8ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (2.0ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mRole Load (2.7ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;35;1mRole Load (4.2ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'not_activated') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mRole Load (1.6ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'not_activated' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mUser Load (8.0ms)[0m   [0mSELECT * FROM "users" ORDER BY login ASC LIMIT 2 OFFSET 4[0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;36;1mRole Load (1.9ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE (("roles_users".user_id = 7)) [0m
+  [4;35;1mRole Load (2.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 7 ) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mRole Load (2.0ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 7 ) [0m
+Completed in 449ms (View: 34, DB: 59) | 200 OK [http://localhost/users?page=3]
+  [4;36;1mSQL (37.6ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-10 00:13:19) [GET]
+  Parameters: {"action"=>"index", "page"=>"1", "controller"=>"users"}
+  [4;36;1mUser Load (42.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = E'1') LIMIT 1[0m
+  [4;35;1mSQL (2.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (9.0ms)[0m   [0;1mUPDATE "users" SET "persistence_token" = E'5307ccdb57b65b87cf07065484939361c49b1434a71548c8eac170c6f3b24715e0ce3004c19828119cb00f1532ca321bc1ccd22c23a179e6c3d4f16d5e4fbce1', "login_count" = 12, "failed_login_count" = 0, "current_login_ip" = E'127.0.0.1', "updated_at" = '2009-11-09 23:13:20.178087', "created_at" = '2009-11-03 22:44:17.940836', "email" = E'ja.zajko@gmail.com', "perishable_token" = E'm4qow0pj8aWONT1yUeOv', "openid_identifier" = NULL, "login" = E'kuba', "single_access_token" = E'jtSmMfibxAEhQ-UtCtaE', "last_request_at" = '2009-11-09 23:13:20.173940', "baseUser_type" = NULL, "last_login_at" = '2009-11-08 14:32:39.529747', "surname" = E' ', "baseUser_id" = NULL, "first_name" = E' ', "last_login_ip" = E'127.0.0.1', "activated" = 'f', "password_salt" = E'jYRVHusajmfKEnoAsZvc', "current_login_at" = '2009-11-09 23:09:05.325910', "crypted_password" = E'b0515ed29bcc58f10c77a3fa139e4620189bd5dbc4bd19aa2d4cabc577e6f0c737d4fc4dc003970af03535c1f8af3fc3df3c3c9750e868800ca45e0df5cf0ed0' WHERE "id" = 1[0m
+  [4;35;1mSQL (7.3ms)[0m   [0mCOMMIT[0m
+  [4;36;1mRole Load (21.2ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'admin') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (6.1ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mRole Load (18.2ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mRole Load (1.1ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;36;1mRole Load (2.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'not_activated') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (2.7ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'not_activated' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mUser Load (5.3ms)[0m   [0;1mSELECT * FROM "users" ORDER BY login ASC LIMIT 2 OFFSET 0[0m
+  [4;35;1mSQL (8.4ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;36;1mRole Load (2.6ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE (("roles_users".user_id = 1)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;36;1mRole Load (10.1ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE (("roles_users".user_id = 2)) [0m
+  [4;35;1mRole Load (4.6ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 2 ) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mRole Load (2.5ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 2 ) [0m
+Completed in 852ms (View: 35, DB: 185) | 200 OK [http://localhost/users?page=1]
+  [4;36;1mSQL (1.6ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-10 00:14:21) [GET]
+  Parameters: {"action"=>"index", "page"=>"1", "controller"=>"users"}
+  [4;36;1mUser Load (3.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = E'1') LIMIT 1[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (8.7ms)[0m   [0;1mUPDATE "users" SET "persistence_token" = E'5307ccdb57b65b87cf07065484939361c49b1434a71548c8eac170c6f3b24715e0ce3004c19828119cb00f1532ca321bc1ccd22c23a179e6c3d4f16d5e4fbce1', "login_count" = 12, "failed_login_count" = 0, "current_login_ip" = E'127.0.0.1', "updated_at" = '2009-11-09 23:14:21.546493', "created_at" = '2009-11-03 22:44:17.940836', "email" = E'ja.zajko@gmail.com', "perishable_token" = E'cLWA9yDATauUCnhaqFnc', "openid_identifier" = NULL, "login" = E'kuba', "single_access_token" = E'jtSmMfibxAEhQ-UtCtaE', "last_request_at" = '2009-11-09 23:14:21.543880', "baseUser_type" = NULL, "last_login_at" = '2009-11-08 14:32:39.529747', "surname" = E' ', "baseUser_id" = NULL, "first_name" = E' ', "last_login_ip" = E'127.0.0.1', "activated" = 'f', "password_salt" = E'jYRVHusajmfKEnoAsZvc', "current_login_at" = '2009-11-09 23:09:05.325910', "crypted_password" = E'b0515ed29bcc58f10c77a3fa139e4620189bd5dbc4bd19aa2d4cabc577e6f0c737d4fc4dc003970af03535c1f8af3fc3df3c3c9750e868800ca45e0df5cf0ed0' WHERE "id" = 1[0m
+  [4;35;1mSQL (2.7ms)[0m   [0mCOMMIT[0m
+  [4;36;1mRole Load (10.9ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'admin') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (2.3ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mRole Load (1.8ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mRole Load (2.3ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;36;1mRole Load (1.5ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'not_activated') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (1.6ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'not_activated' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mUser Load (4.1ms)[0m   [0;1mSELECT * FROM "users" ORDER BY login ASC LIMIT 2 OFFSET 0[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;36;1mRole Load (1.9ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE (("roles_users".user_id = 1)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;36;1mRole Load (4.9ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE (("roles_users".user_id = 2)) [0m
+  [4;35;1mRole Load (3.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 2 ) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mRole Load (4.2ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 2 ) [0m
+Completed in 303ms (View: 76, DB: 59) | 200 OK [http://localhost/users?page=1]
+  [4;36;1mSQL (1.6ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-10 00:14:36) [GET]
+  Parameters: {"action"=>"index", "page"=>"1", "controller"=>"users"}
+  [4;36;1mUser Load (10.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = E'1') LIMIT 1[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (9.2ms)[0m   [0;1mUPDATE "users" SET "persistence_token" = E'5307ccdb57b65b87cf07065484939361c49b1434a71548c8eac170c6f3b24715e0ce3004c19828119cb00f1532ca321bc1ccd22c23a179e6c3d4f16d5e4fbce1', "login_count" = 12, "failed_login_count" = 0, "current_login_ip" = E'127.0.0.1', "updated_at" = '2009-11-09 23:14:36.788547', "created_at" = '2009-11-03 22:44:17.940836', "email" = E'ja.zajko@gmail.com', "perishable_token" = E'Mp_5uSzWjsinkm4JR-6G', "openid_identifier" = NULL, "login" = E'kuba', "single_access_token" = E'jtSmMfibxAEhQ-UtCtaE', "last_request_at" = '2009-11-09 23:14:36.786805', "baseUser_type" = NULL, "last_login_at" = '2009-11-08 14:32:39.529747', "surname" = E' ', "baseUser_id" = NULL, "first_name" = E' ', "last_login_ip" = E'127.0.0.1', "activated" = 'f', "password_salt" = E'jYRVHusajmfKEnoAsZvc', "current_login_at" = '2009-11-09 23:09:05.325910', "crypted_password" = E'b0515ed29bcc58f10c77a3fa139e4620189bd5dbc4bd19aa2d4cabc577e6f0c737d4fc4dc003970af03535c1f8af3fc3df3c3c9750e868800ca45e0df5cf0ed0' WHERE "id" = 1[0m
+  [4;35;1mSQL (2.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mRole Load (4.2ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'admin') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (2.3ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mRole Load (1.9ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mRole Load (2.7ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;36;1mRole Load (13.2ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'not_activated') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (2.2ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'not_activated' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mUser Load (8.5ms)[0m   [0;1mSELECT * FROM "users" ORDER BY login ASC LIMIT 2 OFFSET 0[0m
+  [4;35;1mSQL (4.4ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;36;1mRole Load (2.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE (("roles_users".user_id = 1)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;36;1mRole Load (6.9ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE (("roles_users".user_id = 2)) [0m
+  [4;35;1mRole Load (4.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 2 ) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mRole Load (2.6ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 2 ) [0m
+Completed in 664ms (View: 54, DB: 81) | 200 OK [http://localhost/users?page=1]
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-10 00:14:39) [GET]
+  Parameters: {"action"=>"index", "page"=>"2", "controller"=>"users"}
+  [4;36;1mUser Load (34.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = E'1') LIMIT 1[0m
+  [4;35;1mSQL (12.8ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (2.8ms)[0m   [0;1mUPDATE "users" SET "persistence_token" = E'5307ccdb57b65b87cf07065484939361c49b1434a71548c8eac170c6f3b24715e0ce3004c19828119cb00f1532ca321bc1ccd22c23a179e6c3d4f16d5e4fbce1', "login_count" = 12, "failed_login_count" = 0, "current_login_ip" = E'127.0.0.1', "updated_at" = '2009-11-09 23:14:40.181935', "created_at" = '2009-11-03 22:44:17.940836', "email" = E'ja.zajko@gmail.com', "perishable_token" = E'bUwuPUb4WWzAYjMy4nyX', "openid_identifier" = NULL, "login" = E'kuba', "single_access_token" = E'jtSmMfibxAEhQ-UtCtaE', "last_request_at" = '2009-11-09 23:14:40.167815', "baseUser_type" = NULL, "last_login_at" = '2009-11-08 14:32:39.529747', "surname" = E' ', "baseUser_id" = NULL, "first_name" = E' ', "last_login_ip" = E'127.0.0.1', "activated" = 'f', "password_salt" = E'jYRVHusajmfKEnoAsZvc', "current_login_at" = '2009-11-09 23:09:05.325910', "crypted_password" = E'b0515ed29bcc58f10c77a3fa139e4620189bd5dbc4bd19aa2d4cabc577e6f0c737d4fc4dc003970af03535c1f8af3fc3df3c3c9750e868800ca45e0df5cf0ed0' WHERE "id" = 1[0m
+  [4;35;1mSQL (2.9ms)[0m   [0mCOMMIT[0m
+  [4;36;1mRole Load (3.5ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'admin') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (21.2ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mRole Load (2.0ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mRole Load (6.7ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;36;1mRole Load (43.9ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'not_activated') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (2.3ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'not_activated' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mUser Load (3.3ms)[0m   [0;1mSELECT * FROM "users" ORDER BY login ASC LIMIT 2 OFFSET 2[0m
+  [4;35;1mSQL (2.7ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;36;1mRole Load (5.3ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE (("roles_users".user_id = 4)) [0m
+  [4;35;1mRole Load (15.3ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 4 ) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mRole Load (2.5ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 4 ) [0m
+  [4;36;1mRole Load (8.2ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE (("roles_users".user_id = 5)) [0m
+  [4;35;1mRole Load (5.7ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 5 ) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mRole Load (4.4ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 5 ) [0m
+Completed in 543ms (View: 69, DB: 182) | 200 OK [http://localhost/users?page=2]
+  [4;36;1mSQL (9.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (16.9ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing UsersController#4 (for 127.0.0.1 at 2009-11-10 00:22:37) [GET]
+  Parameters: {"action"=>"4", "controller"=>"users"}
+  [4;36;1mUser Load (6.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = E'1') LIMIT 1[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (6.2ms)[0m   [0;1mUPDATE "users" SET "persistence_token" = E'5307ccdb57b65b87cf07065484939361c49b1434a71548c8eac170c6f3b24715e0ce3004c19828119cb00f1532ca321bc1ccd22c23a179e6c3d4f16d5e4fbce1', "login_count" = 12, "failed_login_count" = 0, "current_login_ip" = E'127.0.0.1', "updated_at" = '2009-11-09 23:22:38.309130', "created_at" = '2009-11-03 22:44:17.940836', "email" = E'ja.zajko@gmail.com', "perishable_token" = E'rlS5ec5S9i_HL1nqcjed', "openid_identifier" = NULL, "login" = E'kuba', "single_access_token" = E'jtSmMfibxAEhQ-UtCtaE', "last_request_at" = '2009-11-09 23:22:38.303763', "baseUser_type" = NULL, "last_login_at" = '2009-11-08 14:32:39.529747', "surname" = E' ', "baseUser_id" = NULL, "first_name" = E' ', "last_login_ip" = E'127.0.0.1', "activated" = 'f', "password_salt" = E'jYRVHusajmfKEnoAsZvc', "current_login_at" = '2009-11-09 23:09:05.325910', "crypted_password" = E'b0515ed29bcc58f10c77a3fa139e4620189bd5dbc4bd19aa2d4cabc577e6f0c737d4fc4dc003970af03535c1f8af3fc3df3c3c9750e868800ca45e0df5cf0ed0' WHERE "id" = 1[0m
+  [4;35;1mSQL (4.3ms)[0m   [0mCOMMIT[0m
+  [4;36;1mRole Load (13.6ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'admin') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (2.6ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mRole Load (2.4ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mRole Load (8.2ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;36;1mRole Load (4.8ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'not_activated') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (2.2ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'not_activated' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+
+ActionController::UnknownAction (No action responded to 4. Actions: activate, ban, create, current_user, current_user_session, deny_user_access, edit, generate_activate_url, index, new, redirect_back_or_default, require_no_user, require_user, show, store_location, unban, and update):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-10 00:23:41) [GET]
+  Parameters: {"action"=>"index", "page"=>"2", "controller"=>"users"}
+  [4;36;1mUser Load (25.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = E'1') LIMIT 1[0m
+  [4;35;1mSQL (19.8ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (21.2ms)[0m   [0;1mUPDATE "users" SET "persistence_token" = E'5307ccdb57b65b87cf07065484939361c49b1434a71548c8eac170c6f3b24715e0ce3004c19828119cb00f1532ca321bc1ccd22c23a179e6c3d4f16d5e4fbce1', "login_count" = 12, "failed_login_count" = 0, "current_login_ip" = E'127.0.0.1', "updated_at" = '2009-11-09 23:23:41.371449', "created_at" = '2009-11-03 22:44:17.940836', "email" = E'ja.zajko@gmail.com', "perishable_token" = E'JXZ9FhJCSg03BHQhtiMu', "openid_identifier" = NULL, "login" = E'kuba', "single_access_token" = E'jtSmMfibxAEhQ-UtCtaE', "last_request_at" = '2009-11-09 23:23:41.346438', "baseUser_type" = NULL, "last_login_at" = '2009-11-08 14:32:39.529747', "surname" = E' ', "baseUser_id" = NULL, "first_name" = E' ', "last_login_ip" = E'127.0.0.1', "activated" = 'f', "password_salt" = E'jYRVHusajmfKEnoAsZvc', "current_login_at" = '2009-11-09 23:09:05.325910', "crypted_password" = E'b0515ed29bcc58f10c77a3fa139e4620189bd5dbc4bd19aa2d4cabc577e6f0c737d4fc4dc003970af03535c1f8af3fc3df3c3c9750e868800ca45e0df5cf0ed0' WHERE "id" = 1[0m
+  [4;35;1mSQL (4.1ms)[0m   [0mCOMMIT[0m
+  [4;36;1mRole Load (29.3ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'admin') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (1.9ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mRole Load (14.2ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mRole Load (7.0ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;36;1mRole Load (1.9ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'not_activated') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (2.1ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'not_activated' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mUser Load (4.8ms)[0m   [0;1mSELECT * FROM "users" ORDER BY login ASC LIMIT 2 OFFSET 2[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;36;1mRole Load (2.1ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE (("roles_users".user_id = 4)) [0m
+  [4;35;1mRole Load (2.2ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 4 ) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mRole Load (2.4ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 4 ) [0m
+  [4;36;1mRole Load (3.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE (("roles_users".user_id = 5)) [0m
+  [4;35;1mRole Load (7.8ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 5 ) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mRole Load (1.9ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 5 ) [0m
+Completed in 498ms (View: 54, DB: 155) | 200 OK [http://localhost/users?page=2]
+  [4;36;1mSQL (26.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (3.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-10 00:23:47) [GET]
+  Parameters: {"action"=>"index", "page"=>"2", "controller"=>"users"}
+  [4;36;1mUser Load (7.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = E'1') LIMIT 1[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (4.6ms)[0m   [0;1mUPDATE "users" SET "persistence_token" = E'5307ccdb57b65b87cf07065484939361c49b1434a71548c8eac170c6f3b24715e0ce3004c19828119cb00f1532ca321bc1ccd22c23a179e6c3d4f16d5e4fbce1', "login_count" = 12, "failed_login_count" = 0, "current_login_ip" = E'127.0.0.1', "updated_at" = '2009-11-09 23:23:47.948740', "created_at" = '2009-11-03 22:44:17.940836', "email" = E'ja.zajko@gmail.com', "perishable_token" = E'dkKZuIMOraGm_RR_p45_', "openid_identifier" = NULL, "login" = E'kuba', "single_access_token" = E'jtSmMfibxAEhQ-UtCtaE', "last_request_at" = '2009-11-09 23:23:47.943710', "baseUser_type" = NULL, "last_login_at" = '2009-11-08 14:32:39.529747', "surname" = E' ', "baseUser_id" = NULL, "first_name" = E' ', "last_login_ip" = E'127.0.0.1', "activated" = 'f', "password_salt" = E'jYRVHusajmfKEnoAsZvc', "current_login_at" = '2009-11-09 23:09:05.325910', "crypted_password" = E'b0515ed29bcc58f10c77a3fa139e4620189bd5dbc4bd19aa2d4cabc577e6f0c737d4fc4dc003970af03535c1f8af3fc3df3c3c9750e868800ca45e0df5cf0ed0' WHERE "id" = 1[0m
+  [4;35;1mSQL (19.1ms)[0m   [0mCOMMIT[0m
+  [4;36;1mRole Load (8.4ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'admin') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (1.9ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mRole Load (8.4ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mRole Load (6.5ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;36;1mRole Load (3.5ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'not_activated') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (2.5ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'not_activated' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mUser Load (2.7ms)[0m   [0;1mSELECT * FROM "users" ORDER BY login ASC LIMIT 2 OFFSET 2[0m
+  [4;35;1mSQL (5.7ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;36;1mRole Load (2.1ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE (("roles_users".user_id = 4)) [0m
+  [4;35;1mRole Load (2.2ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 4 ) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mRole Load (12.1ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 4 ) [0m
+  [4;36;1mRole Load (3.3ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE (("roles_users".user_id = 5)) [0m
+  [4;35;1mRole Load (2.3ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 5 ) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mRole Load (3.4ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 5 ) [0m
+Completed in 522ms (View: 68, DB: 127) | 200 OK [http://localhost/users?page=2]
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing UsersController#4 (for 127.0.0.1 at 2009-11-10 00:23:53) [GET]
+  Parameters: {"action"=>"4", "controller"=>"users"}
+  [4;36;1mUser Load (3.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = E'1') LIMIT 1[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (5.2ms)[0m   [0;1mUPDATE "users" SET "persistence_token" = E'5307ccdb57b65b87cf07065484939361c49b1434a71548c8eac170c6f3b24715e0ce3004c19828119cb00f1532ca321bc1ccd22c23a179e6c3d4f16d5e4fbce1', "login_count" = 12, "failed_login_count" = 0, "current_login_ip" = E'127.0.0.1', "updated_at" = '2009-11-09 23:23:53.361910', "created_at" = '2009-11-03 22:44:17.940836', "email" = E'ja.zajko@gmail.com', "perishable_token" = E'J3TYrho2KeKrT4nvVswQ', "openid_identifier" = NULL, "login" = E'kuba', "single_access_token" = E'jtSmMfibxAEhQ-UtCtaE', "last_request_at" = '2009-11-09 23:23:53.358168', "baseUser_type" = NULL, "last_login_at" = '2009-11-08 14:32:39.529747', "surname" = E' ', "baseUser_id" = NULL, "first_name" = E' ', "last_login_ip" = E'127.0.0.1', "activated" = 'f', "password_salt" = E'jYRVHusajmfKEnoAsZvc', "current_login_at" = '2009-11-09 23:09:05.325910', "crypted_password" = E'b0515ed29bcc58f10c77a3fa139e4620189bd5dbc4bd19aa2d4cabc577e6f0c737d4fc4dc003970af03535c1f8af3fc3df3c3c9750e868800ca45e0df5cf0ed0' WHERE "id" = 1[0m
+  [4;35;1mSQL (4.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mRole Load (6.5ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'admin') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (2.4ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mRole Load (4.4ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mRole Load (2.2ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;36;1mRole Load (2.6ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'not_activated') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (4.9ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'not_activated' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+
+ActionController::UnknownAction (No action responded to 4. Actions: activate, ban, create, current_user, current_user_session, deny_user_access, edit, generate_activate_url, index, new, redirect_back_or_default, require_no_user, require_user, show, store_location, unban, and update):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-10 00:24:38) [GET]
+  Parameters: {"action"=>"index", "page"=>"2", "controller"=>"users"}
+  [4;36;1mUser Load (7.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = E'1') LIMIT 1[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (3.8ms)[0m   [0;1mUPDATE "users" SET "persistence_token" = E'5307ccdb57b65b87cf07065484939361c49b1434a71548c8eac170c6f3b24715e0ce3004c19828119cb00f1532ca321bc1ccd22c23a179e6c3d4f16d5e4fbce1', "login_count" = 12, "failed_login_count" = 0, "current_login_ip" = E'127.0.0.1', "updated_at" = '2009-11-09 23:24:38.169958', "created_at" = '2009-11-03 22:44:17.940836', "email" = E'ja.zajko@gmail.com', "perishable_token" = E'ENdjbBchzCv4hmEKI1o_', "openid_identifier" = NULL, "login" = E'kuba', "single_access_token" = E'jtSmMfibxAEhQ-UtCtaE', "last_request_at" = '2009-11-09 23:24:38.166030', "baseUser_type" = NULL, "last_login_at" = '2009-11-08 14:32:39.529747', "surname" = E' ', "baseUser_id" = NULL, "first_name" = E' ', "last_login_ip" = E'127.0.0.1', "activated" = 'f', "password_salt" = E'jYRVHusajmfKEnoAsZvc', "current_login_at" = '2009-11-09 23:09:05.325910', "crypted_password" = E'b0515ed29bcc58f10c77a3fa139e4620189bd5dbc4bd19aa2d4cabc577e6f0c737d4fc4dc003970af03535c1f8af3fc3df3c3c9750e868800ca45e0df5cf0ed0' WHERE "id" = 1[0m
+  [4;35;1mSQL (12.7ms)[0m   [0mCOMMIT[0m
+  [4;36;1mRole Load (22.4ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'admin') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (2.2ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mRole Load (2.1ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mRole Load (6.5ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;36;1mRole Load (7.1ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'not_activated') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (2.3ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'not_activated' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mUser Load (12.6ms)[0m   [0;1mSELECT * FROM "users" ORDER BY login ASC LIMIT 2 OFFSET 2[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;36;1mRole Load (5.3ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE (("roles_users".user_id = 4)) [0m
+  [4;35;1mRole Load (6.5ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 4 ) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mRole Load (4.1ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 4 ) [0m
+  [4;36;1mRole Load (2.2ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE (("roles_users".user_id = 5)) [0m
+  [4;35;1mRole Load (4.2ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 5 ) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mRole Load (7.5ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 5 ) [0m
+Completed in 398ms (View: 75, DB: 115) | 200 OK [http://localhost/users?page=2]
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (20.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-10 00:24:40) [GET]
+  Parameters: {"action"=>"show", "id"=>"4", "controller"=>"users"}
+  [4;36;1mUser Load (9.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = E'1') LIMIT 1[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (10.6ms)[0m   [0;1mUPDATE "users" SET "persistence_token" = E'5307ccdb57b65b87cf07065484939361c49b1434a71548c8eac170c6f3b24715e0ce3004c19828119cb00f1532ca321bc1ccd22c23a179e6c3d4f16d5e4fbce1', "login_count" = 12, "failed_login_count" = 0, "current_login_ip" = E'127.0.0.1', "updated_at" = '2009-11-09 23:24:41.212452', "created_at" = '2009-11-03 22:44:17.940836', "email" = E'ja.zajko@gmail.com', "perishable_token" = E'WfDhVoWU2iKwdV7To5Du', "openid_identifier" = NULL, "login" = E'kuba', "single_access_token" = E'jtSmMfibxAEhQ-UtCtaE', "last_request_at" = '2009-11-09 23:24:41.208640', "baseUser_type" = NULL, "last_login_at" = '2009-11-08 14:32:39.529747', "surname" = E' ', "baseUser_id" = NULL, "first_name" = E' ', "last_login_ip" = E'127.0.0.1', "activated" = 'f', "password_salt" = E'jYRVHusajmfKEnoAsZvc', "current_login_at" = '2009-11-09 23:09:05.325910', "crypted_password" = E'b0515ed29bcc58f10c77a3fa139e4620189bd5dbc4bd19aa2d4cabc577e6f0c737d4fc4dc003970af03535c1f8af3fc3df3c3c9750e868800ca45e0df5cf0ed0' WHERE "id" = 1[0m
+  [4;35;1mSQL (4.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mRole Load (7.6ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'admin') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (7.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mRole Load (2.4ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mRole Load (3.5ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;36;1mRole Load (2.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'not_activated') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (2.1ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'not_activated' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+Completed in 348ms (View: 13, DB: 72) | 200 OK [http://localhost/users/show/4]
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-10 00:41:35) [GET]
+  Parameters: {"action"=>"index", "page"=>"2", "controller"=>"users"}
+  [4;36;1mUser Load (3.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = E'1') LIMIT 1[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (7.0ms)[0m   [0;1mUPDATE "users" SET "persistence_token" = E'5307ccdb57b65b87cf07065484939361c49b1434a71548c8eac170c6f3b24715e0ce3004c19828119cb00f1532ca321bc1ccd22c23a179e6c3d4f16d5e4fbce1', "login_count" = 12, "failed_login_count" = 0, "current_login_ip" = E'127.0.0.1', "updated_at" = '2009-11-09 23:41:35.800294', "created_at" = '2009-11-03 22:44:17.940836', "email" = E'ja.zajko@gmail.com', "perishable_token" = E'Sz_y_IShIJEF8s1ZyMdS', "openid_identifier" = NULL, "login" = E'kuba', "single_access_token" = E'jtSmMfibxAEhQ-UtCtaE', "last_request_at" = '2009-11-09 23:41:35.794296', "baseUser_type" = NULL, "last_login_at" = '2009-11-08 14:32:39.529747', "surname" = E' ', "baseUser_id" = NULL, "first_name" = E' ', "last_login_ip" = E'127.0.0.1', "activated" = 'f', "password_salt" = E'jYRVHusajmfKEnoAsZvc', "current_login_at" = '2009-11-09 23:09:05.325910', "crypted_password" = E'b0515ed29bcc58f10c77a3fa139e4620189bd5dbc4bd19aa2d4cabc577e6f0c737d4fc4dc003970af03535c1f8af3fc3df3c3c9750e868800ca45e0df5cf0ed0' WHERE "id" = 1[0m
+  [4;35;1mSQL (2.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mRole Load (8.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'superuser') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (5.5ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'superuser' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mRole Load (5.3ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;35;1mRole Load (2.6ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'owner') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mRole Load (4.3ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (1.6ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mRole Load (4.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'not_activated') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (1.7ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'not_activated' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+Redirected to http://localhost:3001/
+  [4;36;1mSQL (24.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-11-10 00:41:36) [GET]
+  Parameters: {"action"=>"index", "controller"=>"home"}
+  [4;36;1mUser Load (21.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = E'1') LIMIT 1[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (4.0ms)[0m   [0;1mUPDATE "users" SET "persistence_token" = E'5307ccdb57b65b87cf07065484939361c49b1434a71548c8eac170c6f3b24715e0ce3004c19828119cb00f1532ca321bc1ccd22c23a179e6c3d4f16d5e4fbce1', "login_count" = 12, "failed_login_count" = 0, "current_login_ip" = E'127.0.0.1', "updated_at" = '2009-11-09 23:41:36.752819', "created_at" = '2009-11-03 22:44:17.940836', "email" = E'ja.zajko@gmail.com', "perishable_token" = E'9PsH3KOwZ_MiFLDji9e8', "openid_identifier" = NULL, "login" = E'kuba', "single_access_token" = E'jtSmMfibxAEhQ-UtCtaE', "last_request_at" = '2009-11-09 23:41:36.750161', "baseUser_type" = NULL, "last_login_at" = '2009-11-08 14:32:39.529747', "surname" = E' ', "baseUser_id" = NULL, "first_name" = E' ', "last_login_ip" = E'127.0.0.1', "activated" = 'f', "password_salt" = E'jYRVHusajmfKEnoAsZvc', "current_login_at" = '2009-11-09 23:09:05.325910', "crypted_password" = E'b0515ed29bcc58f10c77a3fa139e4620189bd5dbc4bd19aa2d4cabc577e6f0c737d4fc4dc003970af03535c1f8af3fc3df3c3c9750e868800ca45e0df5cf0ed0' WHERE "id" = 1[0m
+  [4;35;1mSQL (17.8ms)[0m   [0mCOMMIT[0m
+Rendering template within layouts/application
+Rendering home/index
+Rendered home/_userForm (2.3ms)
+Completed in 455ms (View: 5, DB: 70) | 200 OK [http://localhost/]
+  [4;36;1mSQL (11.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-10 00:41:48) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;36;1mUser Load (14.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = E'1') LIMIT 1[0m
+  [4;35;1mSQL (2.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (3.5ms)[0m   [0;1mUPDATE "users" SET "persistence_token" = E'5307ccdb57b65b87cf07065484939361c49b1434a71548c8eac170c6f3b24715e0ce3004c19828119cb00f1532ca321bc1ccd22c23a179e6c3d4f16d5e4fbce1', "login_count" = 12, "failed_login_count" = 0, "current_login_ip" = E'127.0.0.1', "updated_at" = '2009-11-09 23:41:48.843453', "created_at" = '2009-11-03 22:44:17.940836', "email" = E'ja.zajko@gmail.com', "perishable_token" = E'VAn_WpyG2YCFbgsDQ3-c', "openid_identifier" = NULL, "login" = E'kuba', "single_access_token" = E'jtSmMfibxAEhQ-UtCtaE', "last_request_at" = '2009-11-09 23:41:48.836592', "baseUser_type" = NULL, "last_login_at" = '2009-11-08 14:32:39.529747', "surname" = E' ', "baseUser_id" = NULL, "first_name" = E' ', "last_login_ip" = E'127.0.0.1', "activated" = 'f', "password_salt" = E'jYRVHusajmfKEnoAsZvc', "current_login_at" = '2009-11-09 23:09:05.325910', "crypted_password" = E'b0515ed29bcc58f10c77a3fa139e4620189bd5dbc4bd19aa2d4cabc577e6f0c737d4fc4dc003970af03535c1f8af3fc3df3c3c9750e868800ca45e0df5cf0ed0' WHERE "id" = 1[0m
+  [4;35;1mSQL (3.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mRole Load (7.1ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'superuser') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (1.7ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'superuser' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mRole Load (2.0ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;35;1mRole Load (2.4ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'owner') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mRole Load (2.1ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (2.2ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mRole Load (6.3ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'not_activated') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (2.4ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'not_activated' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+Redirected to http://localhost:3001/
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-11-10 00:41:49) [GET]
+  Parameters: {"action"=>"index", "controller"=>"home"}
+  [4;36;1mUser Load (19.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = E'1') LIMIT 1[0m
+  [4;35;1mSQL (16.4ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (11.3ms)[0m   [0;1mUPDATE "users" SET "persistence_token" = E'5307ccdb57b65b87cf07065484939361c49b1434a71548c8eac170c6f3b24715e0ce3004c19828119cb00f1532ca321bc1ccd22c23a179e6c3d4f16d5e4fbce1', "login_count" = 12, "failed_login_count" = 0, "current_login_ip" = E'127.0.0.1', "updated_at" = '2009-11-09 23:41:49.666227', "created_at" = '2009-11-03 22:44:17.940836', "email" = E'ja.zajko@gmail.com', "perishable_token" = E'NDPB9-CtgokozFgNAFAF', "openid_identifier" = NULL, "login" = E'kuba', "single_access_token" = E'jtSmMfibxAEhQ-UtCtaE', "last_request_at" = '2009-11-09 23:41:49.646012', "baseUser_type" = NULL, "last_login_at" = '2009-11-08 14:32:39.529747', "surname" = E' ', "baseUser_id" = NULL, "first_name" = E' ', "last_login_ip" = E'127.0.0.1', "activated" = 'f', "password_salt" = E'jYRVHusajmfKEnoAsZvc', "current_login_at" = '2009-11-09 23:09:05.325910', "crypted_password" = E'b0515ed29bcc58f10c77a3fa139e4620189bd5dbc4bd19aa2d4cabc577e6f0c737d4fc4dc003970af03535c1f8af3fc3df3c3c9750e868800ca45e0df5cf0ed0' WHERE "id" = 1[0m
+  [4;35;1mSQL (7.4ms)[0m   [0mCOMMIT[0m
+Rendering template within layouts/application
+Rendering home/index
+Rendered home/_userForm (23.9ms)
+Completed in 309ms (View: 25, DB: 56) | 200 OK [http://localhost/]
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (12.8ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-10 00:42:16) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;36;1mUser Load (6.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = E'1') LIMIT 1[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (5.3ms)[0m   [0;1mUPDATE "users" SET "persistence_token" = E'5307ccdb57b65b87cf07065484939361c49b1434a71548c8eac170c6f3b24715e0ce3004c19828119cb00f1532ca321bc1ccd22c23a179e6c3d4f16d5e4fbce1', "login_count" = 12, "failed_login_count" = 0, "current_login_ip" = E'127.0.0.1', "updated_at" = '2009-11-09 23:42:16.482299', "created_at" = '2009-11-03 22:44:17.940836', "email" = E'ja.zajko@gmail.com', "perishable_token" = E'OWCbGFNLmr-D7rxgmwax', "openid_identifier" = NULL, "login" = E'kuba', "single_access_token" = E'jtSmMfibxAEhQ-UtCtaE', "last_request_at" = '2009-11-09 23:42:16.479348', "baseUser_type" = NULL, "last_login_at" = '2009-11-08 14:32:39.529747', "surname" = E' ', "baseUser_id" = NULL, "first_name" = E' ', "last_login_ip" = E'127.0.0.1', "activated" = 'f', "password_salt" = E'jYRVHusajmfKEnoAsZvc', "current_login_at" = '2009-11-09 23:09:05.325910', "crypted_password" = E'b0515ed29bcc58f10c77a3fa139e4620189bd5dbc4bd19aa2d4cabc577e6f0c737d4fc4dc003970af03535c1f8af3fc3df3c3c9750e868800ca45e0df5cf0ed0' WHERE "id" = 1[0m
+  [4;35;1mSQL (5.3ms)[0m   [0mCOMMIT[0m
+  [4;36;1mRole Load (6.1ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'superuser') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (2.2ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'superuser' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mRole Load (2.5ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;35;1mRole Load (5.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'admin') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mRole Load (3.5ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'owner') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (2.9ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mRole Load (2.0ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mRole Load (5.7ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'not_activated') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mRole Load (1.6ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'not_activated' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+Redirected to http://localhost:3001/
+  [4;35;1mSQL (0.9ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-11-10 00:42:16) [GET]
+  Parameters: {"action"=>"index", "controller"=>"home"}
+  [4;35;1mUser Load (20.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = E'1') LIMIT 1[0m
+  [4;36;1mSQL (3.9ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (13.4ms)[0m   [0mUPDATE "users" SET "persistence_token" = E'5307ccdb57b65b87cf07065484939361c49b1434a71548c8eac170c6f3b24715e0ce3004c19828119cb00f1532ca321bc1ccd22c23a179e6c3d4f16d5e4fbce1', "login_count" = 12, "failed_login_count" = 0, "current_login_ip" = E'127.0.0.1', "updated_at" = '2009-11-09 23:42:17.080196', "created_at" = '2009-11-03 22:44:17.940836', "email" = E'ja.zajko@gmail.com', "perishable_token" = E'xGKbWB4VGPZoablpUcac', "openid_identifier" = NULL, "login" = E'kuba', "single_access_token" = E'jtSmMfibxAEhQ-UtCtaE', "last_request_at" = '2009-11-09 23:42:17.074123', "baseUser_type" = NULL, "last_login_at" = '2009-11-08 14:32:39.529747', "surname" = E' ', "baseUser_id" = NULL, "first_name" = E' ', "last_login_ip" = E'127.0.0.1', "activated" = 'f', "password_salt" = E'jYRVHusajmfKEnoAsZvc', "current_login_at" = '2009-11-09 23:09:05.325910', "crypted_password" = E'b0515ed29bcc58f10c77a3fa139e4620189bd5dbc4bd19aa2d4cabc577e6f0c737d4fc4dc003970af03535c1f8af3fc3df3c3c9750e868800ca45e0df5cf0ed0' WHERE "id" = 1[0m
+  [4;36;1mSQL (2.9ms)[0m   [0;1mCOMMIT[0m
+Rendering template within layouts/application
+Rendering home/index
+Rendered home/_userForm (7.4ms)
+Completed in 237ms (View: 11, DB: 44) | 200 OK [http://localhost/]
+  [4;35;1mSQL (1.4ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-10 00:42:51) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;35;1mUser Load (9.9ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = E'1') LIMIT 1[0m
+  [4;36;1mSQL (3.3ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (5.1ms)[0m   [0mUPDATE "users" SET "persistence_token" = E'5307ccdb57b65b87cf07065484939361c49b1434a71548c8eac170c6f3b24715e0ce3004c19828119cb00f1532ca321bc1ccd22c23a179e6c3d4f16d5e4fbce1', "login_count" = 12, "failed_login_count" = 0, "current_login_ip" = E'127.0.0.1', "updated_at" = '2009-11-09 23:42:51.809442', "created_at" = '2009-11-03 22:44:17.940836', "email" = E'ja.zajko@gmail.com', "perishable_token" = E'uJYR3QWOF1tVGZfs-j3U', "openid_identifier" = NULL, "login" = E'kuba', "single_access_token" = E'jtSmMfibxAEhQ-UtCtaE', "last_request_at" = '2009-11-09 23:42:51.804143', "baseUser_type" = NULL, "last_login_at" = '2009-11-08 14:32:39.529747', "surname" = E' ', "baseUser_id" = NULL, "first_name" = E' ', "last_login_ip" = E'127.0.0.1', "activated" = 'f', "password_salt" = E'jYRVHusajmfKEnoAsZvc', "current_login_at" = '2009-11-09 23:09:05.325910', "crypted_password" = E'b0515ed29bcc58f10c77a3fa139e4620189bd5dbc4bd19aa2d4cabc577e6f0c737d4fc4dc003970af03535c1f8af3fc3df3c3c9750e868800ca45e0df5cf0ed0' WHERE "id" = 1[0m
+  [4;36;1mSQL (2.7ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mRole Load (5.3ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'superuser') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mRole Load (6.1ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'superuser' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mRole Load (2.5ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;36;1mRole Load (4.7ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'admin') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'admin') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mRole Load (2.5ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (3.2ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mRole Load (2.5ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'not_activated') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (10.8ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'not_activated' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mUser Load (2.9ms)[0m   [0;1mSELECT * FROM "users" ORDER BY login ASC LIMIT 2 OFFSET 0[0m
+  [4;35;1mSQL (2.8ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+ERROR: compiling _run_erb_app47views47users47index46html46erb RAISED compile error
+/home/szef/Projekt/app/views/users/index.html.erb:38: syntax error, unexpected ')', expecting '}'
+... => "destroy", :id => user.id).to_s); @output_buffer.concat ...
+                              ^
+Function body:           def _run_erb_app47views47users47index46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN\" \"http://www.w3.org/TR/html4/strict.dtd\">\n<html>\n\t<head>\n\t\t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\" />\n\t\t<title>Lista u\305\274ytkownik\303\263w</title>\n\t</head>\n\t<body>\n\t\t<table >\n\t\t\t<tr>\n\t\t\t\t<td>Login</td>\n\t\t\t\t<td>Email</td>\n\t\t\t\t<td>Activated</td>\n\t\t\t\t<td>Roles</td>\n\t\t\t\t<td>Activate url</td>\n\t\t\t\t<td>BAN</td>\n\t\t\t\t<td>Delete</td>\n\t\t\t</tr>\n\t\t\t\n\t\t"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;  @users.each do |user| ; @output_buffer.concat "\n\t\t<tr> \n\t\t\t<td>"
+
+; @output_buffer.concat(( link_to user.login, {:action => "show", :id => user.id }).to_s); @output_buffer.concat "</td>\n\t\t\t<td>"
+; @output_buffer.concat(( user.email).to_s); @output_buffer.concat "</td>\n\t\t\t<td>"
+; @output_buffer.concat(( user.activated).to_s); @output_buffer.concat "</td>\n\t\t\t<td>\n\t\t\t\t"
+
+;  user.roles.each do |role| ; @output_buffer.concat "\n\t\t\t\t\t"
+; @output_buffer.concat(( role.name ).to_s); @output_buffer.concat ", \n\t\t\t\t"
+; end; @output_buffer.concat "\n\t\t\t</td>\n\t\t\t<td>"
+
+; @output_buffer.concat(( @controller.generate_activate_url user).to_s); @output_buffer.concat "</td>\n\t\t\t<td>\n\t\t\t\t"
+
+;  if user.banned? ; @output_buffer.concat "\n\t\t\t\t\t"
+; @output_buffer.concat(( link_to "Unban", {:action =>"unban", :passed_id => user.id} ).to_s); @output_buffer.concat "\n\t\t\t\t"
+;  else ; @output_buffer.concat "\n\t\t\t\t\t"
+; @output_buffer.concat(( link_to "Ban", {:action => "ban", :passed_id => user.id} ).to_s); @output_buffer.concat "\n\t\t\t\t"
+;  end ; @output_buffer.concat "\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t"
+
+
+; @output_buffer.concat(( link_to "X", {:action => "destroy", :id => user.id).to_s); @output_buffer.concat "\n\t\t\t</td>\n\t    </tr>\n\t\t"
+
+
+;  end ; @output_buffer.concat "\n\t\t<tr>\n\t\t\t<center>\n\t\t\t\t"
+
+
+; @output_buffer.concat(( will_paginate @posts ).to_s); @output_buffer.concat "\n\t\t\t</center>\n\t\t</tr>\n\t\t</table>\n\t</body>\n</html>\n"
+
+
+
+
+
+; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /home/szef/Projekt/app/views/users/index.html.erb:53:in `compile!'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_view/renderable.rb:61:in `compile'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_view/renderable.rb:28:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_view/template.rb:199:in `render_template'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_view/base.rb:260:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_view/base.rb:343:in `_render_with_layout'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_view/base.rb:257:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:1250:in `render_for_file'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:945:in `render_without_benchmark'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/benchmarking.rb:51:in `render'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.4/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.4/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/benchmarking.rb:51:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:1326:in `default_render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:1332:in `perform_action_without_filters'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/filters.rb:617:in `call_filters'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.4/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.4/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/flash.rb:146:in `perform_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:532:in `send'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:532:in `process_without_filters'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/filters.rb:606:in `process'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:391:in `process'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:386:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/routing/route_set.rb:437:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:87:in `dispatch'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:121:in `_call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:9:in `cache'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:28:in `call'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/params_parser.rb:15:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/session/cookie_store.rb:93:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/failsafe.rb:26:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `synchronize'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:114:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/reloader.rb:34:in `run'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:108:in `call'
+/usr/lib/ruby/gems/1.8/gems/rails-2.3.4/lib/rails/rack/static.rb:31:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:46:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `each'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `call'
+/usr/lib/ruby/gems/1.8/gems/rails-2.3.4/lib/rails/rack/log_tailer.rb:17:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/content_length.rb:13:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/chunked.rb:15:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/handler/mongrel.rb:64:in `process'
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/handler/mongrel.rb:34:in `run'
+/usr/lib/ruby/gems/1.8/gems/rails-2.3.4/lib/commands/server.rb:111
+/usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+./script/server:3
+-e:2:in `load'
+-e:2
+
+ActionView::TemplateError (compile error
+/home/szef/Projekt/app/views/users/index.html.erb:38: syntax error, unexpected ')', expecting '}'
+... => "destroy", :id => user.id).to_s); @output_buffer.concat ...
+                              ^) on line #38 of app/views/users/index.html.erb:
+35: 				<% end %>
+36: 			</td>
+37: 			<td>
+38: 				<%= link_to "X", {:action => "destroy", :id => user.id%>
+39: 			</td>
+40: 	    </tr>
+41: 		<% end %>
+
+    app/views/users/index.html.erb:53:in `compile!'
+    -e:2:in `load'
+    -e:2
+
+Rendered rescues/_trace (119.1ms)
+Rendered rescues/_request_and_response (7.6ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (1.8ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-10 00:43:28) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;36;1mUser Load (6.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = E'1') LIMIT 1[0m
+  [4;35;1mSQL (2.7ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (5.7ms)[0m   [0;1mUPDATE "users" SET "persistence_token" = E'5307ccdb57b65b87cf07065484939361c49b1434a71548c8eac170c6f3b24715e0ce3004c19828119cb00f1532ca321bc1ccd22c23a179e6c3d4f16d5e4fbce1', "login_count" = 12, "failed_login_count" = 0, "current_login_ip" = E'127.0.0.1', "updated_at" = '2009-11-09 23:43:28.528951', "created_at" = '2009-11-03 22:44:17.940836', "email" = E'ja.zajko@gmail.com', "perishable_token" = E'0MvsvUkzl-XJ8v0aHEF1', "openid_identifier" = NULL, "login" = E'kuba', "single_access_token" = E'jtSmMfibxAEhQ-UtCtaE', "last_request_at" = '2009-11-09 23:43:28.524073', "baseUser_type" = NULL, "last_login_at" = '2009-11-08 14:32:39.529747', "surname" = E' ', "baseUser_id" = NULL, "first_name" = E' ', "last_login_ip" = E'127.0.0.1', "activated" = 'f', "password_salt" = E'jYRVHusajmfKEnoAsZvc', "current_login_at" = '2009-11-09 23:09:05.325910', "crypted_password" = E'b0515ed29bcc58f10c77a3fa139e4620189bd5dbc4bd19aa2d4cabc577e6f0c737d4fc4dc003970af03535c1f8af3fc3df3c3c9750e868800ca45e0df5cf0ed0' WHERE "id" = 1[0m
+  [4;35;1mSQL (2.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mRole Load (2.8ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'superuser') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (2.4ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'superuser' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mRole Load (4.0ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;35;1mRole Load (12.1ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'admin') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'admin') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (2.6ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mRole Load (1.4ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mRole Load (2.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'not_activated') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mRole Load (15.1ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'not_activated' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mUser Load (3.5ms)[0m   [0mSELECT * FROM "users" ORDER BY login ASC LIMIT 2 OFFSET 0[0m
+  [4;36;1mSQL (5.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;35;1mRole Load (2.2ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE (("roles_users".user_id = 1)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;35;1mRole Load (17.9ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE (("roles_users".user_id = 2)) [0m
+  [4;36;1mRole Load (1.9ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 2 ) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mRole Load (10.9ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 2 ) [0m
+Completed in 724ms (View: 73, DB: 105) | 200 OK [http://localhost/users/index]
+  [4;35;1mSQL (1.7ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-10 00:43:43) [GET]
+  Parameters: {"action"=>"index", "page"=>"2", "controller"=>"users"}
+  [4;35;1mUser Load (3.8ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = E'1') LIMIT 1[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (4.0ms)[0m   [0mUPDATE "users" SET "persistence_token" = E'5307ccdb57b65b87cf07065484939361c49b1434a71548c8eac170c6f3b24715e0ce3004c19828119cb00f1532ca321bc1ccd22c23a179e6c3d4f16d5e4fbce1', "login_count" = 12, "failed_login_count" = 0, "current_login_ip" = E'127.0.0.1', "updated_at" = '2009-11-09 23:43:44.037401', "created_at" = '2009-11-03 22:44:17.940836', "email" = E'ja.zajko@gmail.com', "perishable_token" = E'I2L8_IFRoFAT7bkks7L0', "openid_identifier" = NULL, "login" = E'kuba', "single_access_token" = E'jtSmMfibxAEhQ-UtCtaE', "last_request_at" = '2009-11-09 23:43:44.033858', "baseUser_type" = NULL, "last_login_at" = '2009-11-08 14:32:39.529747', "surname" = E' ', "baseUser_id" = NULL, "first_name" = E' ', "last_login_ip" = E'127.0.0.1', "activated" = 'f', "password_salt" = E'jYRVHusajmfKEnoAsZvc', "current_login_at" = '2009-11-09 23:09:05.325910', "crypted_password" = E'b0515ed29bcc58f10c77a3fa139e4620189bd5dbc4bd19aa2d4cabc577e6f0c737d4fc4dc003970af03535c1f8af3fc3df3c3c9750e868800ca45e0df5cf0ed0' WHERE "id" = 1[0m
+  [4;36;1mSQL (4.7ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mRole Load (9.8ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'superuser') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mRole Load (1.7ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'superuser' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mRole Load (2.2ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;36;1mRole Load (2.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'admin') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'admin') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mRole Load (4.3ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (1.7ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mRole Load (2.4ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'not_activated') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (2.0ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'not_activated' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mUser Load (2.3ms)[0m   [0;1mSELECT * FROM "users" ORDER BY login ASC LIMIT 2 OFFSET 2[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;36;1mRole Load (1.9ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE (("roles_users".user_id = 4)) [0m
+  [4;35;1mRole Load (7.1ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 4 ) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mRole Load (2.7ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 4 ) [0m
+  [4;36;1mRole Load (2.2ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE (("roles_users".user_id = 5)) [0m
+  [4;35;1mRole Load (6.5ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 5 ) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mRole Load (1.9ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 5 ) [0m
+Completed in 296ms (View: 41, DB: 69) | 200 OK [http://localhost/users?page=2]
+  [4;36;1mSQL (2.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-10 00:43:52) [GET]
+  Parameters: {"action"=>"index", "page"=>"3", "controller"=>"users"}
+  [4;36;1mUser Load (22.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = E'1') LIMIT 1[0m
+  [4;35;1mSQL (2.5ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (8.4ms)[0m   [0;1mUPDATE "users" SET "persistence_token" = E'5307ccdb57b65b87cf07065484939361c49b1434a71548c8eac170c6f3b24715e0ce3004c19828119cb00f1532ca321bc1ccd22c23a179e6c3d4f16d5e4fbce1', "login_count" = 12, "failed_login_count" = 0, "current_login_ip" = E'127.0.0.1', "updated_at" = '2009-11-09 23:43:52.648263', "created_at" = '2009-11-03 22:44:17.940836', "email" = E'ja.zajko@gmail.com', "perishable_token" = E'Yi2EbldG962hpuN1aXuF', "openid_identifier" = NULL, "login" = E'kuba', "single_access_token" = E'jtSmMfibxAEhQ-UtCtaE', "last_request_at" = '2009-11-09 23:43:52.632029', "baseUser_type" = NULL, "last_login_at" = '2009-11-08 14:32:39.529747', "surname" = E' ', "baseUser_id" = NULL, "first_name" = E' ', "last_login_ip" = E'127.0.0.1', "activated" = 'f', "password_salt" = E'jYRVHusajmfKEnoAsZvc', "current_login_at" = '2009-11-09 23:09:05.325910', "crypted_password" = E'b0515ed29bcc58f10c77a3fa139e4620189bd5dbc4bd19aa2d4cabc577e6f0c737d4fc4dc003970af03535c1f8af3fc3df3c3c9750e868800ca45e0df5cf0ed0' WHERE "id" = 1[0m
+  [4;35;1mSQL (13.7ms)[0m   [0mCOMMIT[0m
+  [4;36;1mRole Load (24.3ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'superuser') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (5.1ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'superuser' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mRole Load (4.8ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;35;1mRole Load (6.2ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'admin') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'admin') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (10.3ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mRole Load (4.5ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mRole Load (4.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'not_activated') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mRole Load (10.8ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'not_activated' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mUser Load (5.1ms)[0m   [0mSELECT * FROM "users" ORDER BY login ASC LIMIT 2 OFFSET 4[0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;36;1mRole Load (1.4ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE (("roles_users".user_id = 7)) [0m
+  [4;35;1mRole Load (4.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 7 ) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mRole Load (9.0ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 7 ) [0m
+Completed in 738ms (View: 43, DB: 141) | 200 OK [http://localhost/users?page=3]
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing UsersController#destroy (for 127.0.0.1 at 2009-11-10 00:43:55) [GET]
+  Parameters: {"action"=>"destroy", "id"=>"7", "controller"=>"users"}
+  [4;36;1mUser Load (17.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = E'1') LIMIT 1[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (6.6ms)[0m   [0;1mUPDATE "users" SET "persistence_token" = E'5307ccdb57b65b87cf07065484939361c49b1434a71548c8eac170c6f3b24715e0ce3004c19828119cb00f1532ca321bc1ccd22c23a179e6c3d4f16d5e4fbce1', "login_count" = 12, "failed_login_count" = 0, "current_login_ip" = E'127.0.0.1', "updated_at" = '2009-11-09 23:43:56.019985', "created_at" = '2009-11-03 22:44:17.940836', "email" = E'ja.zajko@gmail.com', "perishable_token" = E'8T0YIYFH9FkFX6P0qmzP', "openid_identifier" = NULL, "login" = E'kuba', "single_access_token" = E'jtSmMfibxAEhQ-UtCtaE', "last_request_at" = '2009-11-09 23:43:56.014062', "baseUser_type" = NULL, "last_login_at" = '2009-11-08 14:32:39.529747', "surname" = E' ', "baseUser_id" = NULL, "first_name" = E' ', "last_login_ip" = E'127.0.0.1', "activated" = 'f', "password_salt" = E'jYRVHusajmfKEnoAsZvc', "current_login_at" = '2009-11-09 23:09:05.325910', "crypted_password" = E'b0515ed29bcc58f10c77a3fa139e4620189bd5dbc4bd19aa2d4cabc577e6f0c737d4fc4dc003970af03535c1f8af3fc3df3c3c9750e868800ca45e0df5cf0ed0' WHERE "id" = 1[0m
+  [4;35;1mSQL (2.8ms)[0m   [0mCOMMIT[0m
+  [4;36;1mRole Load (4.9ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'superuser') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (3.9ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'superuser' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mRole Load (2.1ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;35;1mRole Load (2.3ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'admin') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mUser Load (3.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;35;1mRole Load (5.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'admin') AND ("roles_users".user_id = 7 ) LIMIT 1[0m
+  [4;36;1mRole Load (1.6ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'admin' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mRole Load (1.8ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 7 ) [0m
+  [4;36;1mRole Load (2.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'superuser') AND ("roles_users".user_id = 7 ) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'superuser' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mRole Load (2.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (3.5ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mRole Load (3.3ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'not_activated') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (1.9ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'not_activated' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;35;1mSQL (6.5ms)[0m   [0mBEGIN[0m
+  [4;36;1mRole Load (1.6ms)[0m   [0;1mSELECT * FROM "roles" WHERE ("roles".authorizable_id = 7 AND "roles".authorizable_type = E'User') [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 7 ) [0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mDELETE FROM "roles_users" WHERE user_id = 7 AND role_id IN (1)[0m
+  [4;35;1mUser Destroy (23.9ms)[0m   [0mDELETE FROM "users" WHERE "id" = 7[0m
+  [4;36;1mSQL (12.5ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3001/users
+Completed in 476ms (DB: 114) | 302 Found [http://localhost/users/destroy/7]
+  [4;35;1mSQL (1.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-10 00:43:56) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;35;1mUser Load (4.7ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = E'1') LIMIT 1[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (2.9ms)[0m   [0mUPDATE "users" SET "persistence_token" = E'5307ccdb57b65b87cf07065484939361c49b1434a71548c8eac170c6f3b24715e0ce3004c19828119cb00f1532ca321bc1ccd22c23a179e6c3d4f16d5e4fbce1', "login_count" = 12, "failed_login_count" = 0, "current_login_ip" = E'127.0.0.1', "updated_at" = '2009-11-09 23:43:56.737351', "created_at" = '2009-11-03 22:44:17.940836', "email" = E'ja.zajko@gmail.com', "perishable_token" = E'lgyulfZ6iDW8eh95A-0k', "openid_identifier" = NULL, "login" = E'kuba', "single_access_token" = E'jtSmMfibxAEhQ-UtCtaE', "last_request_at" = '2009-11-09 23:43:56.735381', "baseUser_type" = NULL, "last_login_at" = '2009-11-08 14:32:39.529747', "surname" = E' ', "baseUser_id" = NULL, "first_name" = E' ', "last_login_ip" = E'127.0.0.1', "activated" = 'f', "password_salt" = E'jYRVHusajmfKEnoAsZvc', "current_login_at" = '2009-11-09 23:09:05.325910', "crypted_password" = E'b0515ed29bcc58f10c77a3fa139e4620189bd5dbc4bd19aa2d4cabc577e6f0c737d4fc4dc003970af03535c1f8af3fc3df3c3c9750e868800ca45e0df5cf0ed0' WHERE "id" = 1[0m
+  [4;36;1mSQL (6.1ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mRole Load (6.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'superuser') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mRole Load (7.9ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'superuser' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mRole Load (18.0ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;36;1mRole Load (2.1ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'admin') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'admin') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mRole Load (35.1ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (1.7ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mRole Load (33.4ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'not_activated') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (1.8ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'not_activated' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mUser Load (14.8ms)[0m   [0;1mSELECT * FROM "users" ORDER BY login ASC LIMIT 2 OFFSET 0[0m
+  [4;35;1mSQL (2.2ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;36;1mRole Load (4.9ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE (("roles_users".user_id = 1)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;36;1mRole Load (2.2ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE (("roles_users".user_id = 2)) [0m
+  [4;35;1mRole Load (2.5ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 2 ) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mRole Load (2.7ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 2 ) [0m
+Completed in 424ms (View: 64, DB: 152) | 200 OK [http://localhost/users]
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-10 00:43:59) [GET]
+  Parameters: {"action"=>"index", "page"=>"2", "controller"=>"users"}
+  [4;36;1mUser Load (5.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = E'1') LIMIT 1[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (7.8ms)[0m   [0;1mUPDATE "users" SET "persistence_token" = E'5307ccdb57b65b87cf07065484939361c49b1434a71548c8eac170c6f3b24715e0ce3004c19828119cb00f1532ca321bc1ccd22c23a179e6c3d4f16d5e4fbce1', "login_count" = 12, "failed_login_count" = 0, "current_login_ip" = E'127.0.0.1', "updated_at" = '2009-11-09 23:44:00.069201', "created_at" = '2009-11-03 22:44:17.940836', "email" = E'ja.zajko@gmail.com', "perishable_token" = E'4p8Vilc9zrHqYoiE6G-M', "openid_identifier" = NULL, "login" = E'kuba', "single_access_token" = E'jtSmMfibxAEhQ-UtCtaE', "last_request_at" = '2009-11-09 23:44:00.066135', "baseUser_type" = NULL, "last_login_at" = '2009-11-08 14:32:39.529747', "surname" = E' ', "baseUser_id" = NULL, "first_name" = E' ', "last_login_ip" = E'127.0.0.1', "activated" = 'f', "password_salt" = E'jYRVHusajmfKEnoAsZvc', "current_login_at" = '2009-11-09 23:09:05.325910', "crypted_password" = E'b0515ed29bcc58f10c77a3fa139e4620189bd5dbc4bd19aa2d4cabc577e6f0c737d4fc4dc003970af03535c1f8af3fc3df3c3c9750e868800ca45e0df5cf0ed0' WHERE "id" = 1[0m
+  [4;35;1mSQL (2.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mRole Load (4.5ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'superuser') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (2.8ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'superuser' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mRole Load (2.6ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;35;1mRole Load (2.5ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'admin') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'admin') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (3.7ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mRole Load (2.5ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mRole Load (5.7ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'not_activated') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mRole Load (2.1ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'not_activated' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mUser Load (2.8ms)[0m   [0mSELECT * FROM "users" ORDER BY login ASC LIMIT 2 OFFSET 2[0m
+  [4;36;1mSQL (36.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;35;1mRole Load (2.2ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE (("roles_users".user_id = 4)) [0m
+  [4;36;1mRole Load (6.2ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 4 ) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mRole Load (2.3ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 4 ) [0m
+  [4;35;1mRole Load (2.4ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE (("roles_users".user_id = 5)) [0m
+  [4;36;1mRole Load (2.4ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 5 ) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mRole Load (2.2ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 5 ) [0m
+Completed in 520ms (View: 47, DB: 103) | 200 OK [http://localhost/users?page=2]
+  [4;35;1mSQL (13.3ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-10 00:44:03) [GET]
+  Parameters: {"action"=>"index", "page"=>"20", "controller"=>"users"}
+  [4;35;1mUser Load (28.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = E'1') LIMIT 1[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (3.3ms)[0m   [0mUPDATE "users" SET "persistence_token" = E'5307ccdb57b65b87cf07065484939361c49b1434a71548c8eac170c6f3b24715e0ce3004c19828119cb00f1532ca321bc1ccd22c23a179e6c3d4f16d5e4fbce1', "login_count" = 12, "failed_login_count" = 0, "current_login_ip" = E'127.0.0.1', "updated_at" = '2009-11-09 23:44:03.368446', "created_at" = '2009-11-03 22:44:17.940836', "email" = E'ja.zajko@gmail.com', "perishable_token" = E'w7tmgEsA68grnCRt2H1L', "openid_identifier" = NULL, "login" = E'kuba', "single_access_token" = E'jtSmMfibxAEhQ-UtCtaE', "last_request_at" = '2009-11-09 23:44:03.365578', "baseUser_type" = NULL, "last_login_at" = '2009-11-08 14:32:39.529747', "surname" = E' ', "baseUser_id" = NULL, "first_name" = E' ', "last_login_ip" = E'127.0.0.1', "activated" = 'f', "password_salt" = E'jYRVHusajmfKEnoAsZvc', "current_login_at" = '2009-11-09 23:09:05.325910', "crypted_password" = E'b0515ed29bcc58f10c77a3fa139e4620189bd5dbc4bd19aa2d4cabc577e6f0c737d4fc4dc003970af03535c1f8af3fc3df3c3c9750e868800ca45e0df5cf0ed0' WHERE "id" = 1[0m
+  [4;36;1mSQL (4.1ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mRole Load (4.6ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'superuser') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mRole Load (21.8ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'superuser' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mRole Load (2.3ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;36;1mRole Load (9.7ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'admin') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'admin') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mRole Load (11.7ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (7.5ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mRole Load (2.1ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'not_activated') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (3.5ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'not_activated' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mUser Load (8.4ms)[0m   [0;1mSELECT * FROM "users" ORDER BY login ASC LIMIT 2 OFFSET 38[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+Completed in 361ms (View: 7, DB: 124) | 200 OK [http://localhost/users?page=20]
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (3.6ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-11-10 00:44:13) [GET]
+  Parameters: {"action"=>"index", "page"=>"1", "controller"=>"users"}
+  [4;36;1mUser Load (3.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = E'1') LIMIT 1[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (2.5ms)[0m   [0;1mUPDATE "users" SET "persistence_token" = E'5307ccdb57b65b87cf07065484939361c49b1434a71548c8eac170c6f3b24715e0ce3004c19828119cb00f1532ca321bc1ccd22c23a179e6c3d4f16d5e4fbce1', "login_count" = 12, "failed_login_count" = 0, "current_login_ip" = E'127.0.0.1', "updated_at" = '2009-11-09 23:44:13.863437', "created_at" = '2009-11-03 22:44:17.940836', "email" = E'ja.zajko@gmail.com', "perishable_token" = E'Jxy_p7gcblG_Fa4VHjQ-', "openid_identifier" = NULL, "login" = E'kuba', "single_access_token" = E'jtSmMfibxAEhQ-UtCtaE', "last_request_at" = '2009-11-09 23:44:13.860945', "baseUser_type" = NULL, "last_login_at" = '2009-11-08 14:32:39.529747', "surname" = E' ', "baseUser_id" = NULL, "first_name" = E' ', "last_login_ip" = E'127.0.0.1', "activated" = 'f', "password_salt" = E'jYRVHusajmfKEnoAsZvc', "current_login_at" = '2009-11-09 23:09:05.325910', "crypted_password" = E'b0515ed29bcc58f10c77a3fa139e4620189bd5dbc4bd19aa2d4cabc577e6f0c737d4fc4dc003970af03535c1f8af3fc3df3c3c9750e868800ca45e0df5cf0ed0' WHERE "id" = 1[0m
+  [4;35;1mSQL (12.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mRole Load (4.2ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'superuser') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (1.8ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'superuser' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mRole Load (2.7ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;35;1mRole Load (4.4ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'admin') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'admin') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (3.8ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mRole Load (1.7ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mRole Load (6.0ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'not_activated') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mRole Load (3.3ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = E'not_activated' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mUser Load (7.0ms)[0m   [0mSELECT * FROM "users" ORDER BY login ASC LIMIT 2 OFFSET 0[0m
+  [4;36;1mSQL (2.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;35;1mRole Load (4.2ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE (("roles_users".user_id = 1)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;35;1mRole Load (3.6ms)[0m   [0mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE (("roles_users".user_id = 2)) [0m
+  [4;36;1mRole Load (1.9ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = E'banned') AND ("roles_users".user_id = 2 ) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "roles" WHERE (name = E'banned' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mRole Load (1.9ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 2 ) [0m
+Completed in 534ms (View: 37, DB: 73) | 200 OK [http://localhost/users?page=1]

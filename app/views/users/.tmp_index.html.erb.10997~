@@ -12,13 +12,12 @@
 				<td>Activated</td>
 				<td>Roles</td>
 				<td>Activate url</td>
-				<td>BAN</td>
-				<td>Delete</td>
+				<td></td>
 			</tr>
 			
 		<% @users.each do |user| %>
 		<tr> 
-			<td><%= link_to user.login, {:action => "show", :id => user.id }%></td>
+			<td><%= user.login %> </td>
 			<td><%= user.email%></td>
 			<td><%= user.activated%></td>
 			<td>
@@ -34,16 +33,8 @@
 					<%= link_to "Ban", {:action => "ban", :passed_id => user.id} %>
 				<% end %>
 			</td>
-			<td>
-				<%= link_to "X", {:action => "destroy", :id => user.id} %>
-			</td>
 	    </tr>
 		<% end %>
-		<tr>
-			<center>
-				<%= will_paginate @posts %>
-			</center>
-		</tr>
 		</table>
 	</body>
 </html>

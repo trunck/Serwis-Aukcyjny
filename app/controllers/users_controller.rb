@@ -6,12 +6,21 @@ class UsersController < ApplicationController
   access_control do
     deny :banned
     deny :not_activated
+    allow :superuser
+    allow :admin, :to => [:destroy], :if => :cant_destroy_admins
     allow :admin
     allow anonymous, :to => [:activate, :new, :create]
-    allow :owner, :of => :user, :to => [:show, :edit, :update]
+    allow :owner, :of => :user, :to => [:show, :edit, :update, :delete]
   end
   
-  @@displays_per_page = 3
+  def cant_destroy_admins
+    @u = User.find(params[:id])
+    if(@u.id != current_user.id && (@u.has_role?(:admin) || @u.has_role?(:superuser)))
+      flash[:notice] = "The user you are trying to delete is an admin or a superuser"
+      return false
+    end
+    return true
+  end
   #TODO zrób to jako parametr w pliku
   
   def new
@@ -68,6 +77,12 @@ class UsersController < ApplicationController
     end
   end
   
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to(:action =>'index')
+  end
+         
   def show
     @user = @current_user
   end
@@ -83,12 +98,14 @@ class UsersController < ApplicationController
   end
   
   def index
-    @users = User.find(:all, :order => "id")  
+    page = params[:page] || 1
+    @users = User.paginate :page => page, :order => 'login ASC'
+    #User.find(:all, :order => "id")  
   end
   
   def activate  
     #postac urla wysyłanego użyszkodnikowi powinna być postaci 
-    #www.adres.com/users/activate?[id]=<id_użyszkodnika>&[token]=<perishable_token_użytkownika>
+    #www.adres.com/users/activate?[id]=<id_użyszkodnika>&[token]=<single_use_token_użytkownika>
     #UWAGA ! nawiasy kwadratowe wokół id i token są KONIECZNE !
       if(!params[:id])
         flash[:notice] = "Podany url aktywacyjny jest nieprawidłowy" 
