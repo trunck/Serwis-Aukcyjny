@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091107164439) do
+ActiveRecord::Schema.define(:version => 20091110105059) do
 
   create_table "administrators", :force => true do |t|
     t.datetime "created_at"
@@ -17,12 +17,13 @@ ActiveRecord::Schema.define(:version => 20091107164439) do
   end
 
   create_table "auctions", :force => true do |t|
-    t.integer  "user_id",     :null => false
-    t.datetime "start",       :null => false
-    t.datetime "end",         :null => false
-    t.text     "description", :null => false
+    t.integer  "user_id",                        :null => false
+    t.datetime "start",                          :null => false
+    t.datetime "end",                            :null => false
+    t.text     "description",                    :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "minimal_price", :default => 0.0, :null => false
   end
 
   create_table "auctions_categories", :id => false, :force => true do |t|
@@ -46,6 +47,21 @@ ActiveRecord::Schema.define(:version => 20091107164439) do
   end
 
   add_index "categories", ["name"], :name => "index_categories_on_name", :unique => true
+
+  create_table "interests", :force => true do |t|
+    t.string   "name",       :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "interests", ["name"], :name => "index_interests_on_name", :unique => true
+
+  create_table "interests_users", :id => false, :force => true do |t|
+    t.integer  "interest_id", :null => false
+    t.integer  "user_id",     :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "regular_auctions", :force => true do |t|
     t.datetime "created_at"

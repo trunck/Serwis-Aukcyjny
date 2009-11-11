@@ -1,3 +1,4 @@
+require "auctions_helper.rb"
 class AuctionsController < ApplicationController
   include AuctionsHelper
   layout "application"
@@ -14,6 +15,14 @@ class AuctionsController < ApplicationController
   def new
     @auction = Auction.new
     @auction.user = current_user
+  #  @auction.auction_token = AuctionsHelper.random_string(20)
+    auction_type = params[:auction_type] || "buy_now"
+    if(auction_type == "buy_now")
+      @auction.auctionable = BuyNowAuction.new
+    else
+      #TODO podstaw inne typy auctionable  
+    end
+    
     #TODO logika dodawania produktu !
   end
 
@@ -37,11 +46,12 @@ class AuctionsController < ApplicationController
 
   def create
     @auction = Auction.new(params[:auction])
+   # @auction.auction_token = params[:auction][:auction_token]
     @auction.user = current_user
     #puts current_user.id
     if @auction.save
       #flash[:notice] = "Account registered!"
-      redirect_to "auctions/show/#{params[:auction][:id]}"
+      redirect_to :action=>"show", :id => @auction.id
       #redirect_back_or_default auctions_url
     else
       #flash[:notice] = "Nie udało się uworzyć aukcji"
@@ -53,6 +63,7 @@ class AuctionsController < ApplicationController
   end
 
   def show
+    @auction = Auction.find(params[:id])
   end
 
 end

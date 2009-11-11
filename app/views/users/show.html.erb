@@ -32,7 +32,15 @@
   <b>Current login ip:</b>
   <%=h @user.current_login_ip %>
 </p>
- 
+
+<p>
+  <b>Interests:</b><br/>
+  	<% @user.interests.each do |inter| %>
+		<li>
+			<ul><%=inter.name %></ul>
+		</li>
+  	<% end %>
+</p>
  
 <%= link_to 'Edit', edit_account_path %>
 <%= link_to 'Destroy', logout_path %>

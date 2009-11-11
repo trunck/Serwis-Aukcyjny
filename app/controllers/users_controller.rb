@@ -25,6 +25,7 @@ class UsersController < ApplicationController
   
   def new
     @user = User.new
+    @interests = Interest.find(:all)
   end
   
   def deny_user_access
@@ -84,7 +85,8 @@ class UsersController < ApplicationController
   end
          
   def show
-    @user = @current_user
+    id = params[:id] || @current_user.id
+    @user = User.find(id) if :id 
   end
  
   def edit

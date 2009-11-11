@@ -6,7 +6,11 @@ class CreateAuctions < ActiveRecord::Migration
       t.datetime :start, :null => false
       t.datetime :end, :null => false
       t.text :description, :null => false
+      t.integer :number_of_products, :default => 1
       t.decimal :minimal_price, :default => 0
+      t.boolean :activated, :default => false
+      t.references :auctionable, :polymorphic => true
+     # t.text :auction_token, :length => 20, :null => false
   #    t.integer :page_rank, :null => false
       t.timestamps
     end

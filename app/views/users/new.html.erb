@@ -4,6 +4,11 @@
   <%= f.error_messages %>
   <%= render :partial => "form", :object => f %>
   <%= f.submit "Register" %>
+   <% for  intr in @interests -%>
+         <%= check_box_tag "user[interest_ids][]", "#{intr.id}", interest(intr) -%> 
+         <%= "#{intr.name}" -%>
+  <% end -%>
 <% end %>
+
 
 

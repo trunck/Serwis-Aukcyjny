@@ -4,6 +4,6 @@ class AddUserLoginUnique < ActiveRecord::Migration
   end
 
   def self.down
-    remove_index :users, :login, :unique => true
+    remove_index :users, :login
   end
 end
