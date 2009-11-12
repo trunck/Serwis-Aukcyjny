@@ -3,12 +3,11 @@
 <% form_for @user, :url => account_path do |f| %>
   <%= f.error_messages %>
   <%= render :partial => "form", :object => f %>
-  
-   <% for intr in @interests -%>
+  <%= f.submit "Register" %>
+   <% for  intr in @interests -%>
          <%= check_box_tag "user[interest_ids][]", "#{intr.id}", interest(intr) -%> 
          <%= "#{intr.name}" -%>
   <% end -%>
-  <%= f.submit "Register" %>
 <% end %>
 
 

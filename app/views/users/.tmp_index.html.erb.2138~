@@ -9,6 +9,7 @@
 			<tr>
 				<td>Login</td>
 				<td>Email</td>
+				<td>Activated</td>
 				<td>Roles</td>
 				<td>Activate url</td>
 				<td>BAN</td>
@@ -19,6 +20,7 @@
 		<tr> 
 			<td><%= link_to user.login, {:action => "show", :id => user.id }%></td>
 			<td><%= user.email%></td>
+			<td><%= user.activated%></td>
 			<td>
 				<% user.roles.each do |role| %>
 					<%= role.name %>, 

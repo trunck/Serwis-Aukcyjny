@@ -68,14 +68,17 @@ class UsersController < ApplicationController
   end
   
   def create
+    @interests = Interest.find(:all)
     @user = User.new(params[:user])
     
     if @user.save
+@user.has_role!(:owner, @user)
       #flash[:notice] = "Account registered!"
       redirect_back_or_default account_url
     else
       render :action => :new
     end
+
   end
   
   def destroy

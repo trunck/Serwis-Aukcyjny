@@ -17,8 +17,9 @@ class User < ActiveRecord::Base
   end
   
   def assign_roles
+
       if(new_record?)
-        has_role!(:owner, @user);
+      #  has_role!(:owner,@user );
         has_role!(:not_activated);
       end
   end

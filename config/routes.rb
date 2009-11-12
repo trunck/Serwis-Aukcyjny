@@ -40,6 +40,7 @@ ActionController::Routing::Routes.draw do |map|
   # consider removing or commenting them out if you're using named routes and resources.
   map.connect ':controller/:action/:id'
   map.resource :user_session
+  map.resource :product
   #map.root :controller => "user_sessions", :action => "new"
   map.root :controller => :home, :action => "index"
   map.resource :account, :controller => "users"

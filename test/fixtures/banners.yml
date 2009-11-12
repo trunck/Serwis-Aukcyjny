@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  url: 
+  pagerank: 
+  users_daily: 1
+
+two:
+  url: 
+  pagerank: 
+  users_daily: 1

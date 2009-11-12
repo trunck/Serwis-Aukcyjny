@@ -9,21 +9,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091110105059) do
-
-  create_table "administrators", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 20091111221147) do
 
   create_table "auctions", :force => true do |t|
-    t.integer  "user_id",                        :null => false
-    t.datetime "start",                          :null => false
-    t.datetime "end",                            :null => false
-    t.text     "description",                    :null => false
+    t.integer  "user_id",                             :null => false
+    t.datetime "start",                               :null => false
+    t.datetime "end",                                 :null => false
+    t.text     "description",                         :null => false
+    t.integer  "number_of_products", :default => 1
+    t.decimal  "minimal_price",      :default => 0.0
+    t.integer  "auctionable_id"
+    t.string   "auctionable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "minimal_price", :default => 0.0, :null => false
+    t.decimal  "buy_now_price",      :default => 0.0
   end
 
   create_table "auctions_categories", :id => false, :force => true do |t|
@@ -33,9 +32,18 @@ ActiveRecord::Schema.define(:version => 20091110105059) do
     t.datetime "updated_at"
   end
 
+  create_table "banners", :force => true do |t|
+    t.string   "url"
+    t.integer  "pagerank"
+    t.integer  "users_daily"
+    t.integer  "width",       :null => false
+    t.integer  "height",      :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "buy_now_auctions", :force => true do |t|
-    t.decimal  "price",                            :null => false
-    t.integer  "numer_of_products", :default => 1, :null => false
+    t.decimal  "price",      :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -63,7 +71,11 @@ ActiveRecord::Schema.define(:version => 20091110105059) do
     t.datetime "updated_at"
   end
 
-  create_table "regular_auctions", :force => true do |t|
+  create_table "products", :force => true do |t|
+    t.integer  "auction_id"
+    t.text     "product_token",                    :null => false
+    t.text     "url"
+    t.boolean  "activated",     :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -85,31 +97,33 @@ ActiveRecord::Schema.define(:version => 20091110105059) do
     t.datetime "updated_at"
   end
 
+  create_table "site_links", :force => true do |t|
+    t.string   "url",         :null => false
+    t.integer  "pagerank",    :null => false
+    t.integer  "users_daily"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", :force => true do |t|
-    t.string   "login",                                  :null => false
-    t.string   "email",                                  :null => false
-    t.string   "crypted_password",                       :null => false
-    t.string   "password_salt",                          :null => false
-    t.string   "persistence_token",                      :null => false
-    t.string   "single_access_token",                    :null => false
-    t.string   "perishable_token",                       :null => false
-    t.integer  "baseUser_id"
-    t.string   "baseUser_type"
-    t.integer  "login_count",         :default => 0,     :null => false
-    t.integer  "failed_login_count",  :default => 0,     :null => false
+    t.string   "login",                                :null => false
+    t.string   "email",                                :null => false
+    t.string   "crypted_password",                     :null => false
+    t.string   "password_salt",                        :null => false
+    t.string   "persistence_token",                    :null => false
+    t.string   "single_access_token",                  :null => false
+    t.string   "perishable_token",                     :null => false
+    t.integer  "login_count",         :default => 0,   :null => false
+    t.integer  "failed_login_count",  :default => 0,   :null => false
     t.datetime "last_request_at"
     t.datetime "current_login_at"
     t.datetime "last_login_at"
     t.string   "current_login_ip"
     t.string   "last_login_ip"
+    t.string   "first_name",          :default => " ", :null => false
+    t.string   "surname",             :default => " ", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "openid_identifier"
-    t.string   "first_name",          :default => " ",   :null => false
-    t.string   "surname",             :default => " ",   :null => false
-    t.boolean  "activated",           :default => false
   end
-
-  add_index "users", ["login"], :name => "index_users_on_login", :unique => true
 
 end

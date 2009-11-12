@@ -16,12 +16,8 @@ class AuctionsController < ApplicationController
     @auction = Auction.new
     @auction.user = current_user
   #  @auction.auction_token = AuctionsHelper.random_string(20)
-    auction_type = params[:auction_type] || "buy_now"
-    if(auction_type == "buy_now")
-      @auction.auctionable = BuyNowAuction.new
-    else
+#    auction_type = params[:auction_type] || "buy_now"
       #TODO podstaw inne typy auctionable  
-    end
     
     #TODO logika dodawania produktu !
   end
@@ -46,11 +42,21 @@ class AuctionsController < ApplicationController
 
   def create
     @auction = Auction.new(params[:auction])
+    #@auctionable = find_auctionable
    # @auction.auction_token = params[:auction][:auction_token]
     @auction.user = current_user
     #puts current_user.id
+    if @auction.auctionable 
+      @auction.auctionable_type = @auction.auctionable.type
+      @auction.auctionable_id = @auction.auctionable.id
+      @auction.auctionable.auction = @auction
+    else
+      
+    end
+    
     if @auction.save
       #flash[:notice] = "Account registered!"
+      @auction.user.has_role!(:owner, @auction)
       redirect_to :action=>"show", :id => @auction.id
       #redirect_back_or_default auctions_url
     else
@@ -65,5 +71,4 @@ class AuctionsController < ApplicationController
   def show
     @auction = Auction.find(params[:id])
   end
-
 end
