@@ -18,11 +18,11 @@ ActiveRecord::Schema.define(:version => 20091111221147) do
     t.text     "description",                         :null => false
     t.integer  "number_of_products", :default => 1
     t.decimal  "minimal_price",      :default => 0.0
+    t.decimal  "buy_now_price",      :default => 0.0
     t.integer  "auctionable_id"
     t.string   "auctionable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "buy_now_price",      :default => 0.0
   end
 
   create_table "auctions_categories", :id => false, :force => true do |t|
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(:version => 20091111221147) do
     t.integer  "users_daily"
     t.integer  "width",       :null => false
     t.integer  "height",      :null => false
+    t.integer  "auction_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -101,6 +102,7 @@ ActiveRecord::Schema.define(:version => 20091111221147) do
     t.string   "url",         :null => false
     t.integer  "pagerank",    :null => false
     t.integer  "users_daily"
+    t.integer  "auction_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

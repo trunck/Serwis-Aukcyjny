@@ -13,9 +13,8 @@ class User < ActiveRecord::Base
   before_save :assign_roles
   
   def self.per_page
-    2 #TODO zrób tak, żeby to było w pliku konfiguracyjnym
+    1 #TODO zrób tak, żeby to było w pliku konfiguracyjnym
   end
-  
   def assign_roles
 
       if(new_record?)

@@ -119,8 +119,9 @@ class UsersController < ApplicationController
       else
         @user = User.find(params[:id])
           
-        if(params[:token] == @user.perishable_token)
-          @user.activated = true;
+        if(params[:token] == @user.single_access_token)
+#         @user.activated = true;
+          @user.has_no_role!(:not_activated)
           @user.save
           flash[:notice] = "Konto zostało zaktywowane !"
           redirect_to :root

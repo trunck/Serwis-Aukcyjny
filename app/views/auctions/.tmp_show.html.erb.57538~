@@ -1,6 +1,0 @@
-<h1>Auctions#show</h1>
-<p>Find me in app/views/auctions/show.html.erb</p>
-
-<% if @auction.auctionable %>
-<h1><%=@auction.auctionable.buy_now_price%></h1>
-<%end%>

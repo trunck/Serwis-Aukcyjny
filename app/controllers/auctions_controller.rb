@@ -2,8 +2,9 @@ require "auctions_helper.rb"
 class AuctionsController < ApplicationController
   include AuctionsHelper
   layout "application"
+  
   access_control do
-    #allow logged_in
+    allow logged_in
     deny :banned
     deny :not_activated
     allow logged_in, :to => [:new, :create, :index]
@@ -15,10 +16,8 @@ class AuctionsController < ApplicationController
   def new
     @auction = Auction.new
     @auction.user = current_user
-  #  @auction.auction_token = AuctionsHelper.random_string(20)
-#    auction_type = params[:auction_type] || "buy_now"
-      #TODO podstaw inne typy auctionable  
-    
+  # @auction.auction_token = AuctionsHelper.random_string(20)
+    #TODO podstaw inne typy auctionable  
     #TODO logika dodawania produktu !
   end
 
@@ -42,16 +41,14 @@ class AuctionsController < ApplicationController
 
   def create
     @auction = Auction.new(params[:auction])
-    #@auctionable = find_auctionable
-   # @auction.auction_token = params[:auction][:auction_token]
+    #@auction.auction_token = params[:auction][:auction_token]
     @auction.user = current_user
-    #puts current_user.id
+    
     if @auction.auctionable 
       @auction.auctionable_type = @auction.auctionable.type
       @auction.auctionable_id = @auction.auctionable.id
       @auction.auctionable.auction = @auction
     else
-      
     end
     
     if @auction.save
@@ -71,4 +68,5 @@ class AuctionsController < ApplicationController
   def show
     @auction = Auction.find(params[:id])
   end
+  
 end

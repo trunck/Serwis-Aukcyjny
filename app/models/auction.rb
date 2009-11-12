@@ -49,4 +49,10 @@ class Auction < ActiveRecord::Base
       errors.add(:s, "The start of an auction can`t be dated in the past") if !start.blank? and (start.year() * 1000 + start.month() * 100 + start.day() ) < (a.year() * 1000 + a.month() *100 + a.day())
   end
   
+  def user_attributes=(attributes)
+    self.user = User.find(attributes)
+    #auction.auctionable = self
+    #raise auction.auctionable.pagerank.to_s
+  end
+  
 end
