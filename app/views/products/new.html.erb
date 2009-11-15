@@ -11,21 +11,25 @@
 	</head>
 <body>
 	<span>
-		<%= link_to "new SiteLink", :action => "new", :product_type => "SiteLink" %> 
-		<%= link_to "new Banner", :action => "new", :product_type => "Banner" %> 
+		<%= link_to "new SiteLink", {:action => "new", :product_type => "site_link"} %> 
+		<%= link_to "new Banner", {:action => "new", :product_type => "banner"} %> 
 	</span> <br />
-<% form_for :product, :url => {:action => "create"}  do |form| %>
+<% form_for @product, :url => {:action => "create", :product_type => @controller.product_type}  do |form| %>
 	<%= form.error_messages %>
 		
-		<%= render :partial => "form_#{@controller.product_type}", :locals => {:form => form}, :object => form %>
+		<%= render :partial => "form_#{@controller.product_type.classify}", :locals => {:form => form}%>
 		
-		<% fields_for "product[auction_attributes]" do |auction_form| %>
-			<%= render :partial => "form", :object => auction_form%>
+		<% form.fields_for :auction do |auction_form| %>
+			<%= auction_form.error_messages %>
+			<%= render :partial => "form", :locals => {:auction_form => auction_form}%>
 			<%= auction_form.hidden_field :user_attributes, :value => current_user.id%>
 		<% end %>
+		<% for cat in @categories -%>
+         <%= check_box_tag "user[category_ids][]", "#{cat.id}", categorize(cat) -%> 
+         <%= "#{cat.name}" -%>
+  <% end %>
 		
 		<%= form.submit "Create auction" %>
-
 <% end %>
 
 	

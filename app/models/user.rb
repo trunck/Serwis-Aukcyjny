@@ -2,6 +2,10 @@ class User < ActiveRecord::Base
   #belongs_to :baseUser, :polymorphic => true
   acts_as_authorization_subject
   acts_as_authorization_object
+   acts_as_authentic do |c|
+    c.logged_in_timeout = 15.minutes # default is 10.minutes
+  end
+
   #has_and_belongs_to_many :roles#_users
   has_many :roles_users 
   has_many :roles, :through => :roles_users

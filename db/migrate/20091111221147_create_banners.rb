@@ -6,6 +6,8 @@ class CreateBanners < ActiveRecord::Migration
       t.integer :users_daily
       t.integer :width, :null=> false
       t.integer :height, :null=> false
+      t.integer :x_pos, :null=> false
+      t.integer :y_pos, :null=> false
       t.references :auction
       t.timestamps
     end
