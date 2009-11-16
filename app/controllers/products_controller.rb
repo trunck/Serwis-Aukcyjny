@@ -4,7 +4,8 @@ class ProductsController < ApplicationController
     @product = Kernel.const_get(product_type.classify).new
     @product.auction = @product.build_auction
     #@product.auction = Auction.new
-    @categories = Category.find(:all)
+    @cats = Category.find(:all)
+   # @product.auction.categories = @cats
   end
   
   def product_type

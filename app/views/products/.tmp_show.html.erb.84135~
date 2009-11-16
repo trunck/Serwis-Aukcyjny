@@ -12,10 +12,3 @@
 <p>
 	<%= @product.auction.description %>
 </p>
-<br />
-<h3>Product`s categories</h3>
-<p>
-	<% @product.auction.categories.each do |category|%>
-		<%= category.name %>
-	<%end%>
-</p>

@@ -11,13 +11,12 @@
 	<%= auction_form.label :cena_minimalna %><br/>
 	<%= auction_form.text_field :minimal_price %><br/>
 	
-	<% for category in Category.find(:all) %>
-		<%= check_box_tag "#{@controller.product_type}[auction_attributes][category_ids][]", category.id, categorized(category) %>
-		<%= category.name %>
-	</div>
-	<% end %> 
 	<% auction_form.fields_for :categories do |categories_form|%>
-
+		< Category.all(:order => "name ASC").each_with_index do |category,idx| %>
+	        <%= categories_form.check_box_tag ( "auction[categories_attributes][#{idx}][category_id]",category.id) %>
+	        <%= category.name %>
+	        <br/>
+		<end%>
     <% end %>
 
 <!-- form.hidden_field :auction_token, :value => "#{@auction.auction_token}" <br/> -->

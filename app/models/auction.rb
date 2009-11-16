@@ -5,7 +5,8 @@ class Auction < ActiveRecord::Base
   belongs_to :auctionable, :polymorphic => true
 
   before_save :assign_roles
-  
+  accepts_nested_attributes_for :categories
+
   validates_presence_of :user_id, :message => "BŁĄD ! nie da się stworzyć aukcji bez właściciela" 
   validates_presence_of :start, :end
  # validates_presence_of :user

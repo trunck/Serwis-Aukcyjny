@@ -1,7 +1,7 @@
 module ProductsHelper
-  def categorize(i)
+  def categorized(i)
       if @product
-         @product.interests.include?(i)
+         @product.auction.categories.include?(i)
       else
         false
       end
