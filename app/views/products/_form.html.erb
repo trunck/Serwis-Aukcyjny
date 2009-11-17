@@ -10,6 +10,7 @@
 	<%= auction_form.text_field :buy_now_price %>
 	<%= auction_form.label :cena_minimalna %><br/>
 	<%= auction_form.text_field :minimal_price %><br/>
+	<%= auction_form.hidden_field :activation_token %><br/>
 	
 	<% for category in Category.find(:all) %>
 		<%= check_box_tag "#{@controller.product_type}[auction_attributes][category_ids][]", category.id, categorized(category) %>
@@ -19,7 +20,20 @@
 	<% auction_form.fields_for :categories do |categories_form|%>
 
     <% end %>
-
+	<br />
+	
+	<% if !@product.auction.activated %>
+		<center>
+			<h2><b>To activate this site you must paste the following token anywhere in the source of the page You are commiting</b></h2>
+			<i>NOTE : It may be inside of a comment</i> <br />
+			<i>NOTE : After activation the token can be removed</i><br />
+			TOKEN :<b> <%= @product.auction.activation_token %> </b>
+		
+		<h3>Activation link for this site : </h3>
+		<%= link_to activate_url(@product.auction.id) , {:action => "activate", :id => @product.auction.id} %>
+		</center>
+	<%end%>
+	 
 <!-- form.hidden_field :auction_token, :value => "#{@auction.auction_token}" <br/> -->
 
 <br/>

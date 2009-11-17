@@ -9,7 +9,8 @@ class CreateAuctions < ActiveRecord::Migration
       t.integer :number_of_products, :default => 1
       t.decimal :minimal_price, :default => 0
       t.decimal :buy_now_price, :default => 0
-      #t.boolean :activated, :default => false
+      t.boolean :activated, :default => false
+      t.activation_token :string, :length => 20
       t.references :auctionable, :polymorphic => true
      # t.text :auction_token, :length => 20, :null => false
   #    t.integer :page_rank, :null => false

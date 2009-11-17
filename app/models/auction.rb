@@ -3,10 +3,12 @@ class Auction < ActiveRecord::Base
   has_and_belongs_to_many :categories
   belongs_to :user, :class_name => 'User', :foreign_key => "user_id" 
   belongs_to :auctionable, :polymorphic => true
+  named_scope :active, :conditions => { :activated => true}
+  named_scope :categorised, :joins => :categories, :select => 'Distinct post.*'
 
   before_save :assign_roles
   accepts_nested_attributes_for :categories
-
+  attr_accessible :categories_ids
   validates_presence_of :user_id, :message => "BŁĄD ! nie da się stworzyć aukcji bez właściciela" 
   validates_presence_of :start, :end
  # validates_presence_of :user
@@ -54,6 +56,18 @@ class Auction < ActiveRecord::Base
     self.user = User.find(attributes)
     #auction.auctionable = self
     #raise auction.auctionable.pagerank.to_s
+  end
+  
+  def self.prepare_search_scopes(params = {})
+    scope = self.search
+    scope.conditions.id = 43
+#    scope.conditions.auctionable_pagerank_gte = params[:pagerank_gte] if params[:pagerank_gte]
+#    scope.conditions.auctionable_pagerank_lte = params[:pagerank_lte] if params[:pagerank_lte]
+#    scope.conditions.auctionable_users_daily_gte = params[:users_daily_gte] if params[:users_daily_gte]
+#    scope.conditions.auctionable_users_daily_lte = params[:users_daily_lte] if params[:users_daily_lte]
+#    scope.order_as = "DESC"
+    scope.order_by = :created_at
+    return scope
   end
   
 end
