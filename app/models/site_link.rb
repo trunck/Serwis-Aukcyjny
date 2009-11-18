@@ -8,6 +8,27 @@ class SiteLink < ActiveRecord::Base
   named_scope :active, :include => :auction, :condition => {'auctions.activated' => true }
   #named_scope :auction, :include => :auction
   
-  
-  
+  named_scope :pagerank_gte, lambda{ |pagerank|
+    {
+      :conditions => ["site_links.pagerank >= (?)", pagerank]
+    }
+   } 
+   
+   named_scope :pagerank_lte, lambda{ |pagerank|
+    {
+      :conditions => ["site_links.pagerank <= (?)", pagerank]
+    }
+   }
+   
+   named_scope :users_daily_gte, lambda{ |users_daily|
+    {
+      :conditions => ["site_links.users_daily >= (?)", users_daily]
+    }
+   } 
+   
+   named_scope :users_daily_lte, lambda{ |users_daily|
+    {
+      :conditions => ["site_links.users_daily <= (?)", users_daily]
+    }
+   } 
 end

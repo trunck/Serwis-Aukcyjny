@@ -8,7 +8,7 @@ class Auction < ActiveRecord::Base
 
   before_save :assign_roles
   accepts_nested_attributes_for :categories
-  attr_accessible :categories_ids
+ #attr_accessible :categories_ids
   validates_presence_of :user_id, :message => "BŁĄD ! nie da się stworzyć aukcji bez właściciela" 
   validates_presence_of :start, :end
  # validates_presence_of :user
@@ -30,6 +30,38 @@ class Auction < ActiveRecord::Base
        return buy_now_price.valid_float? unless buy_now_price.class == Fixnum
      end
    end
+   
+   named_scope :by_categories, lambda{ |*categories|
+    {
+      :include => :categories, 
+      :conditions => ["categories.id IN (?)", categories.map(&:id)]
+    }
+   }
+   
+   named_scope :by_auctionable_type, lambda{ |type|
+    {
+      :conditions => ["activated = (?) AND auctionable_type =(?)", true, type]
+    }
+   }
+   
+   named_scope :by_categories_name, lambda{ |*categories|
+    {
+      :include => :categories, 
+      :conditions => ["categories.name IN (?)", categories]#.map(&:name)]
+    }
+   }
+   
+   named_scope :minimum_days_until_end_of_auction, lambda{ |*days|
+    {
+      :conditions => ["auctions.end - (?) >= INTERVAL '(?) days'",Time.now, days]#.map(&:name)]
+    }
+   }
+   
+   named_scope :maximum_days_until_end_of_auction, lambda{ |*days|
+    {
+      :conditions => ["auctions.end - (?) <= INTERVAL '(?) days'",Time.now, days]#.map(&:name)]
+    }
+   }
    
    def buy_now?
      return buy_now_price > 0
@@ -59,14 +91,32 @@ class Auction < ActiveRecord::Base
   end
   
   def self.prepare_search_scopes(params = {})
-    scope = self.search
-    scope.conditions.id = 43
-#    scope.conditions.auctionable_pagerank_gte = params[:pagerank_gte] if params[:pagerank_gte]
-#    scope.conditions.auctionable_pagerank_lte = params[:pagerank_lte] if params[:pagerank_lte]
-#    scope.conditions.auctionable_users_daily_gte = params[:users_daily_gte] if params[:users_daily_gte]
-#    scope.conditions.auctionable_users_daily_lte = params[:users_daily_lte] if params[:users_daily_lte]
-#    scope.order_as = "DESC"
-    scope.order_by = :created_at
+    #Auction.auctionable_pagerank_gte(0)
+    scope = Auction.search(:auctionable_type => params[:product_type].classify, :activated => true)
+    
+    #raise scope.size.to_s
+    #scope = scope.by_auctionable_type(params[:product_type].classify)
+    scope = scope.minimum_days_until_end_of_auction(params[:minimum_days_until_end_of_auction].to_i) if params[:minimum_days_until_end_of_auction].to_i > 0
+    scope = scope.maximum_days_until_end_of_auction(params[:maximum_days_until_end_of_auction].to_i) if params[:maximum_days_until_end_of_auction].to_i > 0
+    #TODO ACHTUNG ! powyższe dwie linijki, jeżeli nie będą mogły sparsować pól minimum_days_until... i maximum_days_until... to po prostu je zignorują bez feedbacku do użyszkodnika
+    #scope.conditions.end_lte = params[:auction_end_lte] if params[:auction_end_lte]
+    #scope.conditions.auctionable_class_equals = params[:product_type].classify if params[:product_type]
+    #scope = scope.(auctionable_pagerank_gte(params[:pagerank_gte])) if params[:pagerank_gte]
+    #scope = scope.auctionable_pagerank_lte(params[:pagerank_lte]) if params[:pagerank_lte]
+    #scope = scope.auctionable_users_daily_gte(params[:users_daily_gte]) if params[:users_daily_gte]
+    #scope = scope.auctionable_users_daily_lte(params[:users_daily_lte]) if params[:users_daily_lte]
+    
+    if(params[:categories])    
+      temp = params[:categories].reject {|k, v| v.to_i == 0}.to_a.map{|k, v| k}
+      
+      if(temp =! nil && temp.size > 0)
+        
+        scope = scope.by_categories_name(*(temp))
+      end
+    end
+   #scope.order_by = :created_at
+   #scope.order_as = "DESC"
+    
     return scope
   end
   

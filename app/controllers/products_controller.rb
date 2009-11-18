@@ -45,12 +45,18 @@ class ProductsController < ApplicationController
   end
   
   def prepare_search
-    @scope = Auction.active.prepare_search_scopes(params[:search])#Kernel.const_get(product_type.classify).prepare_search_scope(params[:search]) 
+    search = params[:search] || {}
+    search.merge!({:product_type => product_type, :categories => params[:categories]})
+    
+    @scope = Auction.prepare_search_scopes(search)
+    #@scope = Auction.by_categories_name(product_type, *["sport", "turystyka"]).all()#Auction.active.prepare_search_scopes(params[:search])#Kernel.const_get(product_type.classify).prepare_search_scope(params[:search])
+     
   end
   
-  def index    
+  def index       
     prepare_search
-    @products = @scope.all
+    @products = (@scope.all).map {|t| t.auctionable }
+    #raise @products.map {|t| t.id.to_s + t.type.to_s + "  "}.to_s
     #@products = SiteLink.search(params[:search])
    # @products = @search.all#Kernel.const_get(product_type.classify).search(params[:search])
   end
