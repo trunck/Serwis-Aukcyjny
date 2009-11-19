@@ -1,8 +1,19 @@
+<h3>Highest bid :</h3>
+<%= number_to_currency(@product.auction.highest_bid.to_s, :unit => "zł", :separator => ",", :delimeter => " ")%>
+
+<%form_for @bid, :url => {:action => "bid", :product_id => @product.id, :product_type => @controller.product_type} do |bid_form|%>
+<%=bid_form.error_messages%>
+	<%=bid_form.hidden_field :auction_id, :value => @product.auction.id %>
+	<%=bid_form.hidden_field :user_id, :value => current_user.id %>
+	<%=bid_form.label "Bid:"%><br/>
+	<%=bid_form.text_field :offered_price %> minimal bidding price : <%=bid_form.label number_to_currency(@product.auction.minimal_bid.to_s, :unit => "zł", :separator => ",", :delimeter => " ")%><br/>
+	<%=bid_form.submit "Bid"%>
+<% end %>
 <%= render :partial => "show_#{@product.class}"%>
 <h3> auction start date : </h3>
-<%= @product.auction.start%><br/>
+<%= @product.auction.start.localtime%><br/>
 <h3> auction end date : </h3>
-<%= @product.auction.end%><br/>
+<%= @product.auction.end.localtime%><br/>
 
 <% if @product.auction.buy_now_price > 0 %>
 	<h3> buy now price : </h3>
@@ -19,3 +30,10 @@
 		<%= category.name %>
 	<%end%>
 </p>
+
+<h1>Bids :</h1>
+<% @product.auction.bids.by_offered_price.each do |bid| %>
+	<%= bid.user.login %> |
+	<%= bid.offered_price %> | 
+	<%= bid.user.login %> |  	<%= bid.user.created_at%><br />
+<% end %>

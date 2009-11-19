@@ -20,3 +20,6 @@ ActiveSupport.use_standard_json_time_format = true
 # if you're including raw json in an HTML page.
 ActiveSupport.escape_html_entities_in_json = false
 
+class ActiveRecord::Base
+  named_scope :conditions, lambda { |*args| {:conditions => args} }
+end

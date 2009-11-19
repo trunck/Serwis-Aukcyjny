@@ -12,7 +12,7 @@ class CreateRoles < ActiveRecord::Migration
   end
 
   def self.down
-    remove_index :roles, :name, :unique => true
+    remove_index :roles, :name
     drop_table :roles
     
   end

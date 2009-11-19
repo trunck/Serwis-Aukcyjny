@@ -1,6 +1,7 @@
 #require 'Date'
 class Auction < ActiveRecord::Base
   has_and_belongs_to_many :categories
+  has_many :bids
   belongs_to :user, :class_name => 'User', :foreign_key => "user_id" 
   belongs_to :auctionable, :polymorphic => true
   named_scope :active, :conditions => { :activated => true}
@@ -31,6 +32,12 @@ class Auction < ActiveRecord::Base
      end
    end
    
+   named_scope :by_type, lambda{ |type|
+    {
+      :conditions => ["auctions.auctionable_type = (?)", type]
+    }
+   }
+   
    named_scope :by_categories, lambda{ |*categories|
     {
       :include => :categories, 
@@ -48,6 +55,12 @@ class Auction < ActiveRecord::Base
     {
       :include => :categories, 
       :conditions => ["categories.name IN (?)", categories]#.map(&:name)]
+    }
+   }
+   
+   named_scope :by_auctionable_id, lambda{ |ids|
+    {
+      :conditions => ["auctions.auctionable_id IN (?)", ids]#.map(&:name)]
     }
    }
    
@@ -90,7 +103,42 @@ class Auction < ActiveRecord::Base
     #raise auction.auctionable.pagerank.to_s
   end
   
+  def minimal_bid
+    highest_bid + minimal_bidding_difference
+    #  if(bids.count > 0) 
+    #    t = bids.by_offered_price.by_created_at_asc.all
+    #    if(t.count == 1)
+    #      minimal_price + minimal_bidding_difference  
+    #    else
+    #      t.fetch(0).offered_price + minimal_bidding_difference 
+    #    end
+    #  else
+    #    minimal_price + minimal_bidding_difference  
+    #  end
+  end
+  
+  def highest_bid
+      if(bids.count > 0) 
+        t = bids.by_offered_price.all
+        if(t.count == 1)
+          minimal_price #+ minimal_bidding_difference  
+        else
+          t.fetch(1).offered_price 
+        end
+      else
+        minimal_price  
+      end
+  end
+  
+  def bid()
+    
+  end
+  
   def self.prepare_search_scopes(params = {})
+   # product_scope = Kernel.const_get(product_type.classify).prepare_search_scopes(params)
+    #products_all = product_scope.all
+    
+    #scope.search.find(:include => product_scope, :conditions => {})
     #Auction.auctionable_pagerank_gte(0)
     scope = Auction.search(:auctionable_type => params[:product_type].classify, :activated => true)
     
@@ -100,24 +148,27 @@ class Auction < ActiveRecord::Base
     scope = scope.maximum_days_until_end_of_auction(params[:maximum_days_until_end_of_auction].to_i) if params[:maximum_days_until_end_of_auction].to_i > 0
     #TODO ACHTUNG ! powyższe dwie linijki, jeżeli nie będą mogły sparsować pól minimum_days_until... i maximum_days_until... to po prostu je zignorują bez feedbacku do użyszkodnika
     #scope.conditions.end_lte = params[:auction_end_lte] if params[:auction_end_lte]
-    #scope.conditions.auctionable_class_equals = params[:product_type].classify if params[:product_type]
-    #scope = scope.(auctionable_pagerank_gte(params[:pagerank_gte])) if params[:pagerank_gte]
-    #scope = scope.auctionable_pagerank_lte(params[:pagerank_lte]) if params[:pagerank_lte]
-    #scope = scope.auctionable_users_daily_gte(params[:users_daily_gte]) if params[:users_daily_gte]
-    #scope = scope.auctionable_users_daily_lte(params[:users_daily_lte]) if params[:users_daily_lte]
-    
+    #sscope.conditions.auctionable_class_equals = params[:product_type].classify if params[:product_type]
     if(params[:categories])    
       temp = params[:categories].reject {|k, v| v.to_i == 0}.to_a.map{|k, v| k}
       
       if(temp =! nil && temp.size > 0)
-        
         scope = scope.by_categories_name(*(temp))
       end
     end
+    #scope = scope.auctionable_pagerank_gte(params[:pagerank_gte], self.stringify_table(params[:product_type], true)) if params[:pagerank_gte]
+ #   scope = scope.auctionable_pagerank_lte(params[:pagerank_lte]) if params[:pagerank_lte]
+ #   scope = scope.auctionable_users_daily_gte(params[:users_daily_gte]) if params[:users_daily_gte]
+ #   scope = scope.auctionable_users_daily_lte(params[:users_daily_lte]) if params[:users_daily_lte]
+    elems = Kernel.const_get(params[:product_type].classify).prepare_search_scopes(params).all.map{|t| t.id}
+    scope = scope.by_auctionable_id(elems)
+    #TODO to jest horrendalnie niewydajne... o ile w ogole bedzie dzialac
    #scope.order_by = :created_at
    #scope.order_as = "DESC"
     
     return scope
   end
   
+  
+
 end

@@ -16,12 +16,12 @@ class ProductsController < ApplicationController
 
   def activate
       @auction = Auction.find(params[:id])
-      if @auction = nil
+      if @auction == nil
         flash[:notice] = "Aukcja o podanym numerze nie istnieje."
         redirect_to :root
         return
       end
-      if !@auction.activated
+      if !@auction.activated and @auction.end < Time.now
         s ||= @auction.auctionable.url
         begin
           open(@auction.auctionable.url) { 
@@ -63,7 +63,9 @@ class ProductsController < ApplicationController
   
   def create
     #product_type = params[:product_type] || "site_link"
-    @product = Kernel.const_get(product_type.classify).new(params[product_type.to_s])    
+    @product = Kernel.const_get(product_type.classify).new(params[product_type.to_s])
+    @t = @product.auction.end
+    @product.auction.end = Time.local(t.year, t.mon, t.day, t.hour)
     #@product.build_auction(params[:product][:auction])
     #@product.auction = params[:product][:auction]
    # @product.attributes = params[product_type]
@@ -119,8 +121,25 @@ class ProductsController < ApplicationController
   
   def show
     product_type = params[:product_type] || "site_link"
-    
+    @bid = Bid.new
     @product = Kernel.const_get(product_type.classify).find(params[:id])
+  end
+  
+  def bid
+    Bid.transaction do
+     Auction.transaction do
+       @product = Kernel.const_get(product_type.classify).find(params[:product_id])
+       params[:bid][:offered_price] =params[:bid][:offered_price].gsub(/,/ , '.' ) if params[:bid][:offered_price] 
+       @bid = Bid.new(params[:bid])
+       if @bid.save
+         redirect_to :action => "show", :id => @product.id, :product_type => @product.class.to_s
+       else
+         #@auction = Auction.find(params[:bid][:auction_id])
+         render :action => "show", :id => @product.id, :product_type => @product.class.to_s  
+       end
+      
+     end
+    end
   end
   
 end

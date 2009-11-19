@@ -9,20 +9,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091111221147) do
+ActiveRecord::Schema.define(:version => 20091118214052) do
 
   create_table "auctions", :force => true do |t|
-    t.integer  "user_id",                             :null => false
-    t.datetime "start",                               :null => false
-    t.datetime "end",                                 :null => false
-    t.text     "description",                         :null => false
-    t.integer  "number_of_products", :default => 1
-    t.decimal  "minimal_price",      :default => 0.0
-    t.decimal  "buy_now_price",      :default => 0.0
+    t.integer  "user_id",                                           :null => false
+    t.datetime "start",                                             :null => false
+    t.datetime "end",                                               :null => false
+    t.text     "description",                                       :null => false
+    t.integer  "number_of_products",               :default => 1
+    t.decimal  "minimal_price",                    :default => 0.0
     t.integer  "auctionable_id"
     t.string   "auctionable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "buy_now_price",                    :default => 0.0
+    t.boolean  "activated"
+    t.string   "activation_token",   :limit => 20
   end
 
   create_table "auctions_categories", :id => false, :force => true do |t|
@@ -36,9 +38,18 @@ ActiveRecord::Schema.define(:version => 20091111221147) do
     t.string   "url"
     t.integer  "pagerank"
     t.integer  "users_daily"
-    t.integer  "width",       :null => false
-    t.integer  "height",      :null => false
+    t.integer  "width",                      :null => false
+    t.integer  "height",                     :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "x_pos",       :default => 0
+    t.integer  "y_pos",       :default => 0
+  end
+
+  create_table "bids", :force => true do |t|
+    t.integer  "user_id"
     t.integer  "auction_id"
+    t.decimal  "offered_price", :precision => 14, :scale => 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -68,6 +79,11 @@ ActiveRecord::Schema.define(:version => 20091111221147) do
   create_table "interests_users", :id => false, :force => true do |t|
     t.integer  "interest_id", :null => false
     t.integer  "user_id",     :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pop_ups", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -102,7 +118,6 @@ ActiveRecord::Schema.define(:version => 20091111221147) do
     t.string   "url",         :null => false
     t.integer  "pagerank",    :null => false
     t.integer  "users_daily"
-    t.integer  "auction_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

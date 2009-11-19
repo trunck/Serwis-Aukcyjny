@@ -7,7 +7,8 @@ class User < ActiveRecord::Base
   end
 
   #has_and_belongs_to_many :roles#_users
-  has_many :roles_users 
+  has_many :roles_users
+  has_many :bids
   has_many :roles, :through => :roles_users
   has_many :auctions
   has_and_belongs_to_many :interests

@@ -1,0 +1,21 @@
+<%= render :partial => "show_#{@product.class}"%>
+<h3> auction start date : </h3>
+<%= @product.auction.start%><br/>
+<h3> auction end date : </h3>
+<%= @product.auction.end%><br/>
+
+<% if @product.auction.buy_now_price > 0 %>
+	<h3> buy now price : </h3>
+	<%= @product.auction.buy_now_price %> <br />
+<% end %>
+
+<p>
+	<%= @product.auction.description %>
+</p>
+<br />
+<h3>Product`s categories</h3>
+<p>
+	<% @product.auction.categories.each do |category|%>
+		<%= category.name %>
+	<%end%>
+</p>
