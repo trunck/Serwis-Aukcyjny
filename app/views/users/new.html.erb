@@ -1,8 +1,5 @@
 <h1>Register</h1>
- @categories.count
-<% form_for @user, :url => account_path do |f| %>
-	<%= link_to("www.onet.pl",{}, :class => "lasa") %>
-	
+<% form_for @user, :url => account_path do |f| %>	
   <%= f.error_messages %>
   <%= render :partial => "form", :object => f %>
   

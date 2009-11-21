@@ -8,7 +8,18 @@ class UserSessionsController < ApplicationController
   
   def create
     @user_session = UserSession.new(params[:user_session])
-    puts "AAAAAAAAAAA\n" +session[:login].to_s 
+    if a = User.find_by_login(params[:user_session][:login])
+     if a.has_role?(:not_activated)
+       flash[:notice] = "Zaktywuj konto !"
+       redirect_back_or_default :root #account_url
+       return
+     end
+     if a.has_role?(:banned)
+       flash[:notice] = "Zostałeś zablokowany !"
+       redirect_back_or_default :root #account_url
+       return
+     end
+    end
     if @user_session.save
       flash[:notice] = "Login successful!"
       redirect_back_or_default :root #account_url

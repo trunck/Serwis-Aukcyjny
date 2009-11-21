@@ -18,12 +18,27 @@ class Auction < ActiveRecord::Base
   validates_numericality_of :buy_now_price, :greater_than_or_equal_to => 0
   #validate :buy_now_price_null_or_numerical, :message => "Cena kup teraz musi być dodatnią niezerową liczbą rzeczywistą lub ma jej nie być wcale"
   validates_numericality_of :minimal_price, :greater_than_or_equal_to => 0
+  validate :limited_bid_count_if_buy_now_auction, :message => "Nie można już złożyc oferty na tą aukcję"
+  
+  
   acts_as_authorization_object
    def start_must_be_before_end 
      errors.add(:s, "The start of an auction can`t be blank and it must be dated at least 1 day before end") if 
         start.blank? or self.start >= self.end #(self.start.year() * 1000 + self.start.month() * 100 +self.start.day()) >= (self.end.year() * 1000 + self.end.month() * 10 +self.end.day()) 
    end
-
+  
+  def limited_bid_count_if_buy_now_auction
+    bids.count - 1 <= number_of_products
+  end
+  
+  def notifyAuctionWinners
+    raise "Not implemented yet"
+  end
+  
+  def notifyAuctionWinner(user)
+    raise "Not implemented yet"
+  end
+  
    def buy_now_price_null_or_numerical
      if !buy_now_price
        return true
@@ -58,7 +73,7 @@ class Auction < ActiveRecord::Base
     }
    }
    
-   named_scope :by_auctionable_id, lambda{ |ids|
+   named_scope :by_auctionable_id, lambda{ |ids|    
     {
       :conditions => ["auctions.auctionable_id IN (?)", ids]#.map(&:name)]
     }
@@ -104,20 +119,17 @@ class Auction < ActiveRecord::Base
   end
   
   def minimal_bid
-    highest_bid + minimal_bidding_difference
-    #  if(bids.count > 0) 
-    #    t = bids.by_offered_price.by_created_at_asc.all
-    #    if(t.count == 1)
-    #      minimal_price + minimal_bidding_difference  
-    #    else
-    #      t.fetch(0).offered_price + minimal_bidding_difference 
-    #    end
-    #  else
-    #    minimal_price + minimal_bidding_difference  
-    #  end
+    if buy_now_price > 0
+      buy_now_price
+    else
+      highest_bid + minimal_bidding_difference
+    end
   end
   
   def highest_bid
+    if buy_now_price > 0
+      return buy_now_price
+    end
       if(bids.count > 0) 
         t = bids.by_offered_price.all
         if(t.count == 1)
@@ -161,6 +173,7 @@ class Auction < ActiveRecord::Base
  #   scope = scope.auctionable_users_daily_gte(params[:users_daily_gte]) if params[:users_daily_gte]
  #   scope = scope.auctionable_users_daily_lte(params[:users_daily_lte]) if params[:users_daily_lte]
     elems = Kernel.const_get(params[:product_type].classify).prepare_search_scopes(params).all.map{|t| t.id}
+    
     scope = scope.by_auctionable_id(elems)
     #TODO to jest horrendalnie niewydajne... o ile w ogole bedzie dzialac
    #scope.order_by = :created_at

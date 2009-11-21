@@ -2,7 +2,7 @@
 		<%= link_to "SiteLink", {:action => "index", :product_type => "site_link"} %> 
 		<%= link_to "Banner", {:action => "index", :product_type => "banner"} %> 
 </span> <br />
-  <% form_for "search" do |f|%>
+  <% form_for "search", :action => "index" do |f|%>
 	<%= f.label :auction_end_between%>
 	<%= f.text_field :minimum_days_until_end_of_auction, :size => 8 %> - <%= f.text_field :maximum_days_until_end_of_auction, :size =>8%>
 	<%= f.label :Pagerank_between%> 
@@ -13,6 +13,6 @@
 				category.name
 				%> <%= category.name%>
 		<%end%>
-  <%=f.submit "Search" %>
+  <%=f.submit "Search"%>
 <% end %>
-<%= render :partial => "index_#{@controller.product_type.classify}", :locals => {:product_type => @controller.product_type}%>
+<%= render :partial => "index_#{@controller.product_type.classify}", :locals => {:product_type => @controller.product_type, :search => params[:search], :categories => params[:categories]}%>

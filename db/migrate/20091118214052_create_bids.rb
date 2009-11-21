@@ -4,6 +4,8 @@ class CreateBids < ActiveRecord::Migration
       t.references :user
       t.references :auction
       t.decimal :offered_price, :precision => 14, :scale => 4
+      t.boolean :cancelled, :default => false
+      t.boolean :asking_for_cancellation, :default => false
       t.timestamps
     end
     execute "ALTER TABLE bids ADD CONSTRAINT fk_bids_to_user FOREIGN KEY (user_id) REFERENCES users;"

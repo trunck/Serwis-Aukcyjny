@@ -11,9 +11,11 @@ class CreateBanners < ActiveRecord::Migration
       t.references :auction
       t.timestamps
     end
+    execute "ALTER TABLE banners ADD CONSTRAINT fk_banners_for_auctions_1 FOREIGN KEY (auction_id) REFERENCES auctions;"
   end
 
   def self.down
+    execute "ALTER TABLE banners DROP CONSTRAINT fk_banners_for_auctions_1;"
     drop_table :banners
   end
 end

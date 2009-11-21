@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
     @product.auction = @product.build_auction
     #@product.auction = Auction.new
     @cats = Category.find(:all)
-    @products.auction.activation_token = random_string(20)
+    @product.auction.activation_token = ProductsHelper.random_string(20)
    # @product.auction.categories = @cats
   end
   
@@ -56,16 +56,14 @@ class ProductsController < ApplicationController
   def index       
     prepare_search
     @products = (@scope.all).map {|t| t.auctionable }
-    #raise @products.map {|t| t.id.to_s + t.type.to_s + "  "}.to_s
-    #@products = SiteLink.search(params[:search])
-   # @products = @search.all#Kernel.const_get(product_type.classify).search(params[:search])
+    
   end
   
   def create
     #product_type = params[:product_type] || "site_link"
     @product = Kernel.const_get(product_type.classify).new(params[product_type.to_s])
     @t = @product.auction.end
-    @product.auction.end = Time.local(t.year, t.mon, t.day, t.hour)
+    @product.auction.end = Time.local(@t.year, @t.mon, @t.day, @t.hour)
     #@product.build_auction(params[:product][:auction])
     #@product.auction = params[:product][:auction]
    # @product.attributes = params[product_type]
@@ -129,17 +127,37 @@ class ProductsController < ApplicationController
     Bid.transaction do
      Auction.transaction do
        @product = Kernel.const_get(product_type.classify).find(params[:product_id])
-       params[:bid][:offered_price] =params[:bid][:offered_price].gsub(/,/ , '.' ) if params[:bid][:offered_price] 
+       params[:bid][:offered_price] =params[:bid][:offered_price].gsub(/,/ , '.' ) if params[:bid][:offered_price]
        @bid = Bid.new(params[:bid])
        if @bid.save
+         
          redirect_to :action => "show", :id => @product.id, :product_type => @product.class.to_s
        else
          #@auction = Auction.find(params[:bid][:auction_id])
-         render :action => "show", :id => @product.id, :product_type => @product.class.to_s  
+         render :action => "show", :id => @product.id, :product_type => @product.class.to_s, :product_id => @product.id  
        end
-      
      end
     end
+  end
+  
+  def ask_for_bid_cancellation
+    bid_id = params[:bid_id]
+    @bid = Bid.find(bid_id)
+    raise "No auction with id = #{bid_id}" if @bid == nil
+    raise "Must be logged in" if current_user == nil
+    #TODO obsluz te wyjatki jakos
+    @bid.ask_for_cancell(current_user)
+    redirect_to :action => "show", :id => params[:product_id], :product_type => params[:product_type]
+  end
+  
+  def cancell_bid
+    bid_id = params[:bid_id]
+    @bid = Bid.find(bid_id)
+    raise "No auction with id = #{bid_id}" if @bid == nil
+    raise "Must be logged in" if current_user == nil
+    #TODO obsluz te wyjatki jakos
+    @bid.cancell_bid(current_user, params[:decision]);
+    redirect_to :action => "show", :id => params[:product_id], :product_type => params[:product_type]
   end
   
 end

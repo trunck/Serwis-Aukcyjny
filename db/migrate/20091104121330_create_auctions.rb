@@ -11,7 +11,7 @@ class CreateAuctions < ActiveRecord::Migration
       t.decimal :buy_now_price, :default => 0, :precision => 14, :scale => 4
       t.decimal :minimal_bidding_difference, :default => 5.00,  :precision => 10, :scale => 2
       t.boolean :activated, :default => false
-      t.activation_token :string, :length => 20
+      t.string :activation_token , :length => 20
       t.references :auctionable, :polymorphic => true
      # t.text :auction_token, :length => 20, :null => false
   #    t.integer :page_rank, :null => false
