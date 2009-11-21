@@ -7,6 +7,12 @@ class ApplicationController < ActionController::Base
   filter_parameter_logging :password, :password_confirmation
   helper_method :current_user_session, :current_user
   
+  before_filter :instantiate_controller_and_action_names
+    def instantiate_controller_and_action_names
+      @current_action = action_name
+      @current_controller = controller_name
+    end
+
   def current_user_session
     return @current_user_session if defined?(@current_user_session)
     

@@ -15,6 +15,7 @@ class ProductsController < ApplicationController
   end
 
   def activate
+    #TODO przenieś logikę z kontrolera do modelu
       @auction = Auction.find(params[:id])
       if @auction == nil
         flash[:notice] = "Aukcja o podanym numerze nie istnieje."
@@ -26,9 +27,10 @@ class ProductsController < ApplicationController
         begin
           open(@auction.auctionable.url) { 
             |f|
-            if f.string.contains(s)
+            if f.string.contains(@auction.activation_token)
               @auction.activated = true
               @auction.save
+              #TODO Dodanie aukcji do kolejki w demonie zamykającym aukcje
               flash[:notice] = "Auckcja aktywowana pomyślnie"
               redirect_to :action => "show", :id => params[:id], :product_type => @auction.auctionable.class
               return
@@ -41,7 +43,6 @@ class ProductsController < ApplicationController
       else
         redirect_to :index
       end
-        
   end
   
   def prepare_search
