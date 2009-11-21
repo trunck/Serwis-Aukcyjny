@@ -1,0 +1,10 @@
+<h3> site url : </h3>  
+<%= @product.url %> <br />
+<h3> pagerank : </h3>
+<%= @product.pagerank %> <br />
+<h3> daily users : </h3>
+<%= @product.users_daily %> <br />
+<h3> Banner position (x, y) : </h3>
+<%= @product.x_pos.to_s + " , " + @product.y_pos.to_s %> <br />
+<h3> Banner height, width : </h3>
+<%= @product.height.to_s + " , " + @product.width.to_s %> <br />

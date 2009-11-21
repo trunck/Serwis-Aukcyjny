@@ -5,6 +5,7 @@ class CreateSponsoredArticles < ActiveRecord::Migration
       t.integer :pagerank
       t.integer :users_daily
       t.integer :words_number, :null => false, :default => 0
+      t.integer :number_of_links
       t.references :auction
       t.timestamps
     end

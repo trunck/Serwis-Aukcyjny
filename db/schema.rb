@@ -9,22 +9,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091118214052) do
+ActiveRecord::Schema.define(:version => 20091121165418) do
 
   create_table "auctions", :force => true do |t|
-    t.integer  "user_id",                                                                      :null => false
-    t.datetime "start",                                                                        :null => false
-    t.datetime "end",                                                                          :null => false
-    t.text     "description",                                                                  :null => false
-    t.integer  "number_of_products",                                        :default => 1
-    t.decimal  "minimal_price",              :precision => 14, :scale => 4, :default => 0.0
-    t.decimal  "buy_now_price",              :precision => 14, :scale => 4, :default => 0.0
-    t.decimal  "minimal_bidding_difference", :precision => 10, :scale => 2, :default => 5.0
-    t.boolean  "activated",                                                 :default => false
+    t.integer  "user_id",                                                                                    :null => false
+    t.datetime "start",                                                                                      :null => false
+    t.datetime "end",                                                                                        :null => false
+    t.text     "description",                                                                                :null => false
+    t.integer  "number_of_products",                                                      :default => 1
+    t.decimal  "minimal_price",                            :precision => 14, :scale => 4, :default => 0.0
+    t.decimal  "buy_now_price",                            :precision => 14, :scale => 4, :default => 0.0
+    t.decimal  "minimal_bidding_difference",               :precision => 10, :scale => 2, :default => 5.0
+    t.boolean  "activated",                                                               :default => false
     t.integer  "auctionable_id"
     t.string   "auctionable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "activation_token",           :limit => 20
   end
 
   create_table "auctions_categories", :id => false, :force => true do |t|
@@ -121,6 +122,17 @@ ActiveRecord::Schema.define(:version => 20091118214052) do
     t.string   "url",         :null => false
     t.integer  "pagerank",    :null => false
     t.integer  "users_daily"
+    t.integer  "auction_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sponsored_articles", :force => true do |t|
+    t.string   "url"
+    t.integer  "pagerank"
+    t.integer  "users_daily"
+    t.integer  "words_number",    :default => 0, :null => false
+    t.integer  "number_of_links"
     t.integer  "auction_id"
     t.datetime "created_at"
     t.datetime "updated_at"

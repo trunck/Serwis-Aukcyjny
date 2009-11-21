@@ -12,7 +12,8 @@
 <body>
 	<span>
 		<%= link_to "new SiteLink", {:action => "new", :product_type => "site_link"} %> 
-		<%= link_to "new Banner", {:action => "new", :product_type => "banner"} %> 
+		<%= link_to "new Banner", {:action => "new", :product_type => "banner"} %>
+		<%= link_to "new SponsoredArticle", {:action => "new", :product_type => "sponsored_article"} %> 
 	</span> <br />
 
 <% form_for @product, :url => {:action => "create", :product_type => @controller.product_type}  do |form| %>
