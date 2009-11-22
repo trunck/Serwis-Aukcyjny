@@ -1,0 +1,54 @@
+<table>
+<tr>
+	<td bgcolor="red">
+		
+	</td>
+	<td>
+		Start
+	</td>
+	<td>
+		End
+	</td>
+	<td>
+		Pagerank
+	</td>
+	<td>
+		Users daily
+	</td>
+	<td>
+		Current price
+	</td>
+
+	<td>
+		Number of products
+	</td>
+</tr>
+
+<% @products.each do |product| %>
+<tr>
+	<td>
+		<%= link_to "Show", {:action => "show", :id => product.id, :product_type => "site_link"} %>
+	</td>
+	<td>
+		<%=product.auction.start%>
+	</td>
+	<td>
+		<%=product.auction.end%>
+	</td>
+	<td>
+		<%=product.pagerank%>
+	</td>
+	<td>
+		<%=product.users_daily%>
+	</td>
+	
+	<td>
+		<%=product.auction.highest_bid %><!--< #TODO! CURRENT PRICE !product.current_price> -->
+	</td>
+	<td>
+		<%= product.auction.number_of_products%>
+	</td>
+</tr>
+<% end %>
+
+</table>

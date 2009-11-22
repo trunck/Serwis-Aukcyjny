@@ -73,6 +73,13 @@ class Auction < ActiveRecord::Base
     }
    }
    
+   named_scope :by_categories_id, lambda{ |*categories|
+    {
+      :include => :categories, 
+      :conditions => ["categories.id IN (?)", categories]#.map(&:name)]
+    }
+   }
+   
    named_scope :by_auctionable_id, lambda{ |ids|    
     {
       :conditions => ["auctions.auctionable_id IN (?)", ids]#.map(&:name)]
@@ -161,11 +168,10 @@ class Auction < ActiveRecord::Base
     #TODO ACHTUNG ! powyższe dwie linijki, jeżeli nie będą mogły sparsować pól minimum_days_until... i maximum_days_until... to po prostu je zignorują bez feedbacku do użyszkodnika
     #scope.conditions.end_lte = params[:auction_end_lte] if params[:auction_end_lte]
     #sscope.conditions.auctionable_class_equals = params[:product_type].classify if params[:product_type]
-    if(params[:categories])    
-      temp = params[:categories].reject {|k, v| v.to_i == 0}.to_a.map{|k, v| k}
-      
-      if(temp =! nil && temp.size > 0)
-        scope = scope.by_categories_name(*(temp))
+    if(params != nil and params[:categories_attributes] != nil)
+      temp = params[:categories_attributes].map {|t| t.to_i}#.reject {|k, v| v.to_i == 0}.to_a.map{|k, v| k}
+      if(temp != nil && temp.size > 0)
+        scope = scope.by_categories_id(*temp)
       end
     end
     #scope = scope.auctionable_pagerank_gte(params[:pagerank_gte], self.stringify_table(params[:product_type], true)) if params[:pagerank_gte]

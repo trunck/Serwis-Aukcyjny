@@ -1,3 +1,25 @@
+<% form_for :search, {:url => "/products/index?[product_type]=#{@controller.product_type}"} do |f|%>
+	<%= f.label :auction_end_between%>
+	<%= f.text_field :minimum_days_until_end_of_auction, :size => 8 %> - <%= f.text_field :maximum_days_until_end_of_auction, :size =>8%>
+	<%= f.label :Pagerank_between%> 
+	<%= f.text_field :pagerank_gte, :size => 8  %> - <%= f.text_field :pagerank_lte, :size => 8 %>
+	<%= f.label :Users_daily_between%> 
+	<%= f.text_field :users_daily_gte, :size => 8  %> - <%= f.text_field :users_daily_lte, :size => 8 %>
+	<%= f.label :X_position_between%> 
+	<%= f.text_field :x_pos_gte, :size => 8  %> - <%= f.text_field :x_pos_lte, :size => 8 %>
+	<%= f.label :Y_position_between%> 
+	<%= f.text_field :y_pos_gte, :size => 8  %> - <%= f.text_field :y_pos_lte, :size => 8 %>
+	<%= f.label :Width_between%>
+	<%= f.text_field :width_gte, :size => 8  %> - <%= f.text_field :width_lte, :size => 8 %>
+	<%= f.label :Height_between%>
+	<%= f.text_field :height_gte, :size => 8  %> - <%= f.text_field :height_lte, :size => 8 %>
+	<% for category in Category.all %>
+ 		<%= check_box_tag("search[categories_attributes][]",category.id,  params[:search] && params[:search][:categories_attributes] && params[:search][:categories_attributes].include?(category.id.to_s)) %>
+ 		<%= category.name %>
+ 		<br/>
+	<% end %>
+  	<%=f.submit "Search"%>
+<% end %>
 <table>
 <tr>
 	<td bgcolor="red">

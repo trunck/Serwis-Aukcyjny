@@ -7,7 +7,9 @@ class SiteLink < ActiveRecord::Base
   accepts_nested_attributes_for :auction, :allow_destroy => true
   named_scope :active, :include => :auction, :condition => {'auctions.activated' => true }
   #named_scope :auction, :include => :auction
-  
+  def SiteLink.searchObject(params)
+    SiteLinkSearch.new(params)
+  end
   named_scope :pagerank_gte, lambda{ |pagerank|
     {
       :conditions => ["site_links.pagerank >= (?)", pagerank]
@@ -81,4 +83,31 @@ class SiteLink < ActiveRecord::Base
     return scope
   end
    
+end
+
+class SiteLinkSearch < Tableless
+ # has_many :categories
+  #accepts_nested_attributes_for :categories
+  column :pagerank_gte, :integer
+  column :pagerank_lte, :integer
+  column :pagerank_lte, :integer
+  column :pagerank_gte, :integer
+  column :users_daily_gte, :integer
+  column :users_daily_lte, :integer
+  column :minimum_days_until_end_of_auction, :integer
+  column :maximum_days_until_end_of_auction, :integer
+  column :product_type, :string
+  @cats
+  def categories_attributes=(atr)
+    @cats = []
+    @cats.push(atr)
+  end
+  #@categories = Category.all#.map{|t| t.name}
+  def categories=(cat)
+  #  @categories = {} 
+  # @categories.merge(cat)
+  end
+  def categories
+    @cats
+  end
 end

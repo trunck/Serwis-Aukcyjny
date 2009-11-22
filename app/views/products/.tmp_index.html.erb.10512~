@@ -1,0 +1,19 @@
+<span>
+		<%= link_to "SiteLink", {:action => "index", :product_type => "site_link"} %> 
+		<%= link_to "Banner", {:action => "index", :product_type => "banner"} %>
+		<%= link_to "SponsoredAricle", {:action => "index", :product_type => "sponsored_article"} %> 
+</span> <br />
+  <% form_for "search", {:url => "/products/index?[product_type]=#{@controller.product_type}", :product_type => @controller.product_type} do |f|%>
+	<%= f.label :auction_end_between%>
+	<%= f.text_field :minimum_days_until_end_of_auction, :size => 8 %> - <%= f.text_field :maximum_days_until_end_of_auction, :size =>8%>
+	<%= f.label :Pagerank_between%> 
+	<%= f.text_field :pagerank_gte, :size => 8  %> - <%= f.text_field :pagerank_lte, :size => 8 %>
+	  
+	  	<% Category.all.each do |category| %>
+	    	<%= check_box "categories", 
+				category.name
+				%> <%= category.name%>
+		<%end%>
+  <%=f.submit "Search"%>
+<% end %>
+<%= render :partial => "index_#{@controller.product_type.classify}", :product_type => @controller.product_type%>

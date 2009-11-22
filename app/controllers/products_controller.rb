@@ -1,3 +1,4 @@
+require 'product_search.rb'
 include ProductsHelper
 class ProductsController < ApplicationController
   #TODO ustal polityke dostepu
@@ -47,7 +48,7 @@ class ProductsController < ApplicationController
   
   def prepare_search
     search = params[:search] || {}
-    search.merge!({:product_type => product_type, :categories => params[:categories]})
+    search.merge!({:product_type => product_type})
     
     @scope = Auction.prepare_search_scopes(search)
     #@scope = Auction.by_categories_name(product_type, *["sport", "turystyka"]).all()#Auction.active.prepare_search_scopes(params[:search])#Kernel.const_get(product_type.classify).prepare_search_scope(params[:search])
@@ -56,8 +57,9 @@ class ProductsController < ApplicationController
   
   def index       
     prepare_search
+    @search = ProductSearch.new(params[:search])#Kernel.const_get(product_type.classify).searchObject(params[:search])
     @products = (@scope.all).map {|t| t.auctionable }
-    
+    #raise "s"
   end
   
   def create
